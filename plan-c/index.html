@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>有限会社エンビジョン | Plan C - Warm & Local</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--brown:#3d2b1f;--terra:#c0623a;--cream:#faf5ef;--beige:#e8ddd0;--warm-white:#fffef9}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--warm-white);color:var(--brown);overflow-x:hidden}
+
+header{position:fixed;top:0;left:0;width:100%;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:18px 56px;background:rgba(255,254,249,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--beige)}
+.logo-img{height:38px}
+nav a{color:var(--brown);text-decoration:none;margin-left:36px;font-size:13px;letter-spacing:1px;opacity:0.7;transition:opacity 0.2s,color 0.2s}
+nav a:hover{opacity:1;color:var(--terra)}
+
+.plan-badge{position:fixed;top:0;right:0;background:var(--terra);color:#fff;padding:8px 22px;font-size:11px;font-weight:700;letter-spacing:3px;z-index:999}
+
+/* HERO */
+.hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:center}
+.hero-bg-full{position:absolute;inset:0;background-image:url('https://envision.okayama.jp/wp-content/themes/eTheme/img/index/service_upper1.jpg');background-size:cover;background-position:center}
+.hero-bg-full::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(61,43,31,0.88) 35%,rgba(61,43,31,0.2) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 80px;max-width:660px}
+.hero-catch{font-size:12px;letter-spacing:5px;color:var(--terra);font-weight:700;text-transform:uppercase;margin-bottom:20px}
+.hero-h1{font-family:'Noto Serif JP',serif;font-size:clamp(40px,5.5vw,70px);color:#fff;line-height:1.4;font-weight:700}
+.hero-h1 em{color:var(--terra);font-style:normal}
+.hero-sub{font-size:15px;color:rgba(255,255,255,0.7);margin-top:24px;line-height:2;letter-spacing:0.5px}
+.hero-cta{display:inline-block;margin-top:40px;padding:18px 44px;background:var(--terra);color:#fff;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:1px;border-radius:2px;transition:opacity 0.2s}
+.hero-cta:hover{opacity:0.85}
+.hero-photos-strip{position:absolute;right:0;top:0;bottom:0;width:38%;display:flex;flex-direction:column;gap:3px;z-index:1}
+.hero-photos-strip div{flex:1;background-size:cover;background-position:center;opacity:0.65}
+.hp1{background-image:url('https://envision.okayama.jp/wp-content/themes/eTheme/img/index/service_upper2.jpg')}
+.hp2{background-image:url('https://envision.okayama.jp/wp-content/themes/eTheme/img/index/service_upper3.jpg')}
+.hp3{background-image:url('https://envision.okayama.jp/wp-content/themes/eTheme/img/index/service_upper4.jpg')}
+
+/* SEC */
+.sec{padding:96px 80px}
+.sec-eyebrow{font-size:11px;letter-spacing:5px;color:var(--terra);font-weight:700;text-transform:uppercase;margin-bottom:10px}
+.sec-h2{font-family:'Noto Serif JP',serif;font-size:clamp(30px,3.2vw,48px);color:var(--brown);line-height:1.3;font-weight:700}
+
+/* ABOUT TOP */
+.about-top{background:var(--cream);padding:96px 80px}
+.at-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.at-img img{width:100%;height:460px;object-fit:cover}
+.at-text-body .at-text{font-size:15px;color:#6b5344;line-height:2.1;margin-top:24px}
+.at-stripe{width:36px;height:3px;background:var(--terra);margin:28px 0}
+
+/* SERVICES */
+.services{background:var(--warm-white)}
+.sv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:56px}
+.sv-card{position:relative;height:360px;overflow:hidden}
+.sv-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.7s}
+.sv-card:hover img{transform:scale(1.07)}
+.sv-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(61,43,31,0.85) 0%,rgba(61,43,31,0.1) 55%)}
+.sv-body{position:absolute;bottom:0;left:0;right:0;padding:32px 36px;z-index:2}
+.sv-cat{font-size:11px;letter-spacing:4px;color:var(--terra);font-weight:700;text-transform:uppercase}
+.sv-name{font-family:'Noto Serif JP',serif;font-size:24px;color:#fff;font-weight:700;margin-top:6px}
+.sv-desc{font-size:13px;color:rgba(255,255,255,0.75);margin-top:10px;line-height:1.8}
+
+/* WORKS */
+.works{background:var(--cream)}
+.w-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:56px}
+.w-item{position:relative;overflow:hidden}
+.w-item img{width:100%;height:260px;object-fit:cover;display:block;transition:transform 0.6s;filter:brightness(0.95)}
+.w-item:hover img{transform:scale(1.06);filter:brightness(1)}
+.w-item.big{grid-column:span 2}
+.w-item.big img{height:260px}
+.w-caption{padding:14px 16px;background:#fff;font-size:12px;letter-spacing:2px;color:#8a6e5a;font-weight:700;border-bottom:2px solid var(--terra)}
+
+/* VOICE / STRENGTH */
+.strength{background:var(--beige);padding:96px 80px}
+.str-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:60px}
+.str-item{text-align:center;padding:48px 32px;background:#fff}
+.str-icon{font-size:40px;margin-bottom:20px}
+.str-name{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:700;color:var(--brown)}
+.str-desc{font-size:13px;color:#8a7060;line-height:1.9;margin-top:12px}
+
+/* CONTACT */
+.contact{background:var(--brown);padding:120px 80px;text-align:center;position:relative;overflow:hidden}
+.contact::before{content:'';position:absolute;inset:0;background-image:url('https://envision.okayama.jp/wp-content/themes/eTheme/img/company/bg_message.jpg');background-size:cover;background-position:center;opacity:0.06}
+.ct-body{position:relative;z-index:2}
+.ct-catch{font-size:11px;letter-spacing:6px;color:var(--terra);font-weight:700;text-transform:uppercase;margin-bottom:12px}
+.ct-h2{font-family:'Noto Serif JP',serif;font-size:clamp(36px,4vw,58px);color:#fff;font-weight:700}
+.ct-sub{color:rgba(255,255,255,0.55);font-size:14px;margin-top:14px;line-height:1.9}
+.ct-tel{font-size:clamp(36px,4vw,52px);font-weight:900;color:var(--terra);margin-top:48px;letter-spacing:3px}
+.ct-tel small{font-size:13px;font-weight:400;color:rgba(255,255,255,0.45);letter-spacing:2px;display:block;margin-bottom:8px}
+.ct-btn{display:inline-block;margin-top:36px;padding:20px 56px;background:var(--terra);color:#fff;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:1px;border-radius:2px;transition:opacity 0.2s}
+.ct-btn:hover{opacity:0.85}
+
+footer{background:#241812;padding:40px 80px;display:flex;justify-content:space-between;align-items:center}
+.ft-logo img{height:28px;filter:brightness(0) invert(1);opacity:0.35}
+.ft-copy{font-size:12px;color:#4a3628;letter-spacing:1px}
+</style>
+</head>
+<body>
+
+<div class="plan-badge">PLAN C — WARM &amp; LOCAL</div>
+
+<header>
+  <img class="logo-img" src="https://envision.okayama.jp/wp-content/themes/eTheme/img/common/logo.png" alt="エンビジョン">
+  <nav>
+    <a href="#services">事業案内</a>
+    <a href="#works">施工実績</a>
+    <a href="#company">会社概要</a>
+    <a href="#contact">お問い合わせ</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg-full"></div>
+  <div class="hero-photos-strip">
+    <div class="hp1"></div>
+    <div class="hp2"></div>
+    <div class="hp3"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-catch">Envision / 岡山の建設を担う</p>
+    <h1 class="hero-h1">地域とともに、<br><em>確かな仕事</em>を<br>積み重ねてきた。</h1>
+    <p class="hero-sub">解体・土木・鳶・電気工事を手がける<br>岡山の専門工事会社</p>
+    <a href="#works" class="hero-cta">施工実績を見る</a>
+  </div>
+</div>
+
+<!-- ABOUT TOP -->
+<div class="about-top" id="company">
+  <div class="at-inner">
+    <div class="at-img">
+      <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/common/img_company.jpg" alt="会社">
+    </div>
+    <div class="at-text-body">
+      <p class="sec-eyebrow">About Us</p>
+      <h2 class="sec-h2">真摯な施工で、<br>地域に貢献する。</h2>
+      <div class="at-stripe"></div>
+      <p class="at-text">
+        有限会社エンビジョンは、岡山を拠点に解体・土木・鳶・電気工事の4分野で地域の建設を長年にわたり支えてきた専門集団です。<br><br>
+        「誠実な仕事で地域に貢献する」を信念に、お客様一人ひとりとしっかり向き合い、安全・確実な施工をお届けします。
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="sec services" id="services">
+  <p class="sec-eyebrow">Our Services</p>
+  <h2 class="sec-h2">事業内容</h2>
+  <div class="sv-grid">
+    <div class="sv-card">
+      <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/kaitai01.jpg" alt="解体工事">
+      <div class="sv-body">
+        <div class="sv-cat">Demolition</div>
+        <div class="sv-name">解体工事</div>
+        <div class="sv-desc">建物の安全・確実な解体。廃材の適正処理まで一貫して対応します。</div>
+      </div>
+    </div>
+    <div class="sv-card">
+      <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/doboku01.jpg" alt="土木工事">
+      <div class="sv-body">
+        <div class="sv-cat">Civil Engineering</div>
+        <div class="sv-name">土木工事</div>
+        <div class="sv-desc">道路・基盤整備から大型土木工事まで幅広く対応する確かな技術力。</div>
+      </div>
+    </div>
+    <div class="sv-card">
+      <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/index/service_upper3.jpg" alt="鳶工事">
+      <div class="sv-body">
+        <div class="sv-cat">Steel Work</div>
+        <div class="sv-name">鳶工事</div>
+        <div class="sv-desc">足場架設・高所作業の専門家集団。安全を最優先に施工します。</div>
+      </div>
+    </div>
+    <div class="sv-card">
+      <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/denki01.jpg" alt="電気工事">
+      <div class="sv-body">
+        <div class="sv-cat">Electrical</div>
+        <div class="sv-name">電気工事</div>
+        <div class="sv-desc">電力設備・配線工事の施工から点検・保守まで安心してお任せください。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="sec works" id="works">
+  <p class="sec-eyebrow">Our Works</p>
+  <h2 class="sec-h2">施工実績</h2>
+  <div class="w-grid">
+    <div class="w-item big">
+      <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/kaitai01.jpg" alt="解体">
+      <div class="w-caption">解体工事</div>
+    </div>
+    <div class="w-item">
+      <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/doboku01.jpg" alt="土木">
+      <div class="w-caption">土木工事</div>
+    </div>
+    <div class="w-item">
+      <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/denki01.jpg" alt="電気">
+      <div class="w-caption">電気工事</div>
+    </div>
+    <div class="w-item">
+      <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/kaitai02.jpg" alt="解体2">
+      <div class="w-caption">解体工事</div>
+    </div>
+    <div class="w-item big">
+      <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/doboku02.jpg" alt="土木2">
+      <div class="w-caption">土木工事</div>
+    </div>
+    <div class="w-item">
+      <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/kaitai03.jpg" alt="解体3">
+      <div class="w-caption">解体工事</div>
+    </div>
+    <div class="w-item">
+      <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/denki02.jpg" alt="電気2">
+      <div class="w-caption">電気工事</div>
+    </div>
+    <div class="w-item">
+      <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/doboku03.jpg" alt="土木3">
+      <div class="w-caption">土木工事</div>
+    </div>
+    <div class="w-item">
+      <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/denki03.jpg" alt="電気3">
+      <div class="w-caption">電気工事</div>
+    </div>
+  </div>
+</section>
+
+<!-- STRENGTH -->
+<section class="strength">
+  <p class="sec-eyebrow">Why Choose Us</p>
+  <h2 class="sec-h2">選ばれる理由</h2>
+  <div class="str-grid">
+    <div class="str-item">
+      <div class="str-icon">🏗️</div>
+      <div class="str-name">確かな施工品質</div>
+      <div class="str-desc">長年の実績と熟練した技術者による確かな施工品質。お客様の信頼にお応えします。</div>
+    </div>
+    <div class="str-item">
+      <div class="str-icon">🤝</div>
+      <div class="str-name">地域密着の対応</div>
+      <div class="str-desc">岡山を拠点に地域のお客様と長年向き合ってきた誠実な対応を大切にしています。</div>
+    </div>
+    <div class="str-item">
+      <div class="str-icon">🔒</div>
+      <div class="str-name">安全第一の現場</div>
+      <div class="str-desc">全ての作業において安全管理を最優先。万全の体制で安心の施工をお届けします。</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="ct-body">
+    <p class="ct-catch">Contact Us</p>
+    <h2 class="ct-h2">お問い合わせ</h2>
+    <p class="ct-sub">工事のご相談・お見積りは無料です。<br>お気軽にご連絡ください。</p>
+    <div class="ct-tel">
+      <small>受付時間 / 平日 8:00〜18:00</small>
+      086-XXX-XXXX
+    </div>
+    <a href="mailto:info@envision.okayama.jp" class="ct-btn">メールでお問い合わせ</a>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-logo"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/common/logo.png" alt="エンビジョン"></div>
+  <div class="ft-copy">© 2024 有限会社エンビジョン. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>
