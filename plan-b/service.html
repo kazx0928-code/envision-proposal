@@ -57,7 +57,7 @@ nav ul li a:hover,nav ul li a.active{color:var(--gold)}
 .btn-navy{background:var(--navy);color:var(--white);padding:14px 40px;font-size:13px;font-weight:700;letter-spacing:.12em;text-decoration:none;display:inline-block;transition:.2s}
 .btn-navy:hover{background:#0d2647}
 footer{background:var(--navy);padding:60px 0 28px;color:rgba(255,255,255,.4)}
-.ft-inner{max-width:1200px;margin:0 auto;padding:0 40px}
+.ft-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:40px}
 .ft-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px;margin-bottom:40px}
 .ft-logo img{height:30px;filter:brightness(0) invert(1);opacity:.55;margin-bottom:12px}
 .ft-logo p{font-size:12px;line-height:1.9}
@@ -110,6 +110,48 @@ footer{background:var(--navy);padding:60px 0 28px;color:rgba(255,255,255,.4)}
 </div>
 <div class="support-section"><div class="wrap"><div class="support-intro"><h3>総合的なサポート体制</h3><p>施工の品質と安全を支える3つの柱</p></div><div class="support-cards"><div class="sup-card"><div class="sup-icon">📋</div><h4 class="sup-title">プロジェクト管理</h4><p class="sup-desc">施工計画の立案から工程管理まで、スケジュールを厳守した進行管理を行います。</p></div><div class="sup-card"><div class="sup-icon">✅</div><h4 class="sup-title">品質確保・検査</h4><p class="sup-desc">材料・施工方法の検証を徹底し、高品質な仕上がりをお約束します。</p></div><div class="sup-card"><div class="sup-icon">🌱</div><h4 class="sup-title">環境・安全管理</h4><p class="sup-desc">安全・環境保全・地域への配慮を一体的に管理し、責任ある施工を実現します。</p></div></div></div></div>
 <div class="cta"><h3>まずはお気軽にご相談ください</h3><p>工事内容・お見積りについてのご質問はいつでも承ります。</p><a href="contact.html" class="btn-navy">お問い合わせはこちら</a></div>
-<footer><div class="ft-inner"><div class="ft-grid"><div class="ft-logo"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/common/logo.png" alt="エンビジョン"><p>岡山市東区を拠点に地域の建設を支えます。</p></div><div class="ft-nav"><h6>Navigation</h6><ul><li><a href="index.html">TOP</a></li><li><a href="service.html">事業内容</a></li><li><a href="works.html">施工実績</a></li><li><a href="company.html">会社案内</a></li><li><a href="contact.html">お問い合わせ</a></li></ul></div><div class="ft-ct"><h6>Contact</h6><p style="font-size:20px;font-weight:700;color:#fff">086-201-8666</p><p style="font-size:12px;margin-top:6px">平日 9:00〜17:30</p></div></div><div class="ft-bottom">© 2024 有限会社エンビジョン All Rights Reserved.</div></div></footer>
+<footer>
+  <div class="ft-inner">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+        <div style="width:34px;height:34px;background:var(--gold);display:flex;align-items:center;justify-content:center;border-radius:2px"><svg viewBox="0 0 24 24" style="fill:var(--navy);width:18px;height:18px"><path d="M3 12l9-9 9 9H18v9H6v-9z"/></svg></div>
+        <span style="font-family:Noto Serif JP,serif;color:#fff;font-size:15px;letter-spacing:.1em;font-weight:700">ENVISION</span>
+      </div>
+      <p style="font-size:12px;line-height:2;margin-bottom:20px">岡山県の土木・建設工事を<br>誠実な技術でサポートします</p>
+      <div style="font-size:11px;line-height:2.2">〒704-8134<br>岡山市東区南古都134-103<br>TEL：086-201-8666<br>平日 9:00〜17:30</div>
+    </div>
+    <div>
+      <p style="font-family:Noto Serif JP,serif;color:#fff;font-size:12px;letter-spacing:.15em;margin-bottom:18px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.1)">MENU</p>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a href="index.html" style="font-size:12px;color:rgba(255,255,255,.4);transition:color .2s">TOP</a>
+        <a href="service.html" style="font-size:12px;color:rgba(255,255,255,.4)">事業内容</a>
+        <a href="works.html" style="font-size:12px;color:rgba(255,255,255,.4)">施工実績</a>
+        <a href="company.html" style="font-size:12px;color:rgba(255,255,255,.4)">会社案内</a>
+        <a href="news.html" style="font-size:12px;color:rgba(255,255,255,.4)">ニュース</a>
+        <a href="shop.html" style="font-size:12px;color:var(--gold)">公式オンラインショップ</a>
+        <a href="contact.html" style="font-size:12px;color:rgba(255,255,255,.4)">お問い合わせ</a>
+      </div>
+    </div>
+    <div>
+      <p style="font-family:Noto Serif JP,serif;color:#fff;font-size:12px;letter-spacing:.15em;margin-bottom:18px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.1)">SERVICE</p>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a href="service.html" style="font-size:12px;color:rgba(255,255,255,.4)">土木工事</a>
+        <a href="service.html" style="font-size:12px;color:rgba(255,255,255,.4)">とび土工工事</a>
+        <a href="service.html" style="font-size:12px;color:rgba(255,255,255,.4)">電気工事</a>
+        <a href="service.html" style="font-size:12px;color:rgba(255,255,255,.4)">解体工事</a>
+        <a href="service.html" style="font-size:12px;color:rgba(255,255,255,.4)">補助金サポート</a>
+        <a href="service.html" style="font-size:12px;color:rgba(255,255,255,.4)">しろあり無料相談</a>
+      </div>
+    </div>
+    <div>
+      <p style="font-family:Noto Serif JP,serif;color:#fff;font-size:12px;letter-spacing:.15em;margin-bottom:18px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.1)">RELATED</p>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a href="https://epirire.com/" target="_blank" style="font-size:12px;color:rgba(255,255,255,.4)">EPIRIRE（コスメ）</a>
+        <a href="https://www.instagram.com/epirire_official/" target="_blank" style="font-size:12px;color:rgba(255,255,255,.4)">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bottom"><small class="ft-copy">© 2022 有限会社エンビジョン All Rights Reserved.</small></div>
+</footer>
 </body>
 </html>
