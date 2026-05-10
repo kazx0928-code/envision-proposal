@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ニュース | 有限会社エンビジョン</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--orange:#b89a4e;--dark:#0d0d0d;--dark2:#1a1a1a;--mid:#2a2a2a;--gray:#7a7a7a;}
+body{font-family:'Noto Sans JP',sans-serif;background:#fff;color:#333;}
+a{text-decoration:none;color:inherit;}
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,.96);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;border-bottom:1px solid rgba(255,255,255,.06);}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-sq{width:32px;height:32px;background:var(--orange);display:flex;align-items:center;justify-content:center;}
+.logo-sq svg{fill:#fff;width:16px;height:16px;}
+.logo-name{font-family:'Oswald',sans-serif;color:#fff;font-size:17px;letter-spacing:.08em;}
+nav{display:flex;gap:0;}
+nav a{color:rgba(255,255,255,.7);font-size:12px;letter-spacing:.06em;padding:0 14px;height:64px;display:flex;align-items:center;border-right:1px solid rgba(255,255,255,.06);transition:all .2s;}
+nav a:first-child{border-left:1px solid rgba(255,255,255,.06);}
+nav a:hover,nav a.active{color:#fff;background:rgba(255,255,255,.06);}
+nav a.shop-link{color:var(--orange);}
+nav a.cta-link{background:var(--orange);color:#fff!important;border:none;}
+.page-hero{margin-top:64px;position:relative;height:280px;overflow:hidden;background:var(--dark);}
+.page-hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.3);}
+.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 64px;}
+.breadcrumb{color:rgba(255,255,255,.5);font-size:12px;margin-bottom:12px;}
+.breadcrumb span{color:var(--orange);}
+.page-hero h1{font-family:'Oswald',sans-serif;color:#fff;font-size:44px;letter-spacing:.05em;}
+.page-hero h1 em{display:block;font-style:normal;font-size:13px;letter-spacing:.2em;color:var(--orange);margin-bottom:8px;}
+.news-section{max-width:860px;margin:64px auto;padding:0 40px 80px;}
+.news-item{display:grid;grid-template-columns:120px 100px 1fr;gap:24px;align-items:flex-start;padding:24px 0;border-bottom:1px solid #eee;}
+.news-date{font-family:'Oswald',sans-serif;color:var(--orange);font-size:14px;}
+.news-cat{background:var(--dark);color:#fff;font-size:11px;padding:3px 10px;display:inline-block;text-align:center;}
+.news-title{font-size:15px;color:#111;font-weight:700;margin-bottom:8px;}
+.news-body{font-size:13px;color:#666;line-height:1.8;}
+footer{background:#000;padding:40px 0 20px;}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 40px;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;text-align:center;}
+.footer-bottom small{color:rgba(255,255,255,.25);font-size:11px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <div class="logo-sq"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9H18v9H6v-9z"/></svg></div>
+    <span class="logo-name">ENVISION</span>
+  </div>
+  <nav>
+    <a href="index.html">TOP</a>
+    <a href="service.html">事業内容</a>
+    <a href="works.html">施工実績</a>
+    <a href="company.html">会社案内</a>
+    <a href="news.html" class="active">ニュース</a>
+    <a href="shop.html" class="shop-link">オンラインショップ</a>
+    <a href="contact.html" class="cta-link">お問い合わせ</a>
+  </nav>
+</header>
+<div class="page-hero">
+  <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/index/service_upper2.jpg" alt="ニュース">
+  <div class="hero-content">
+    <div class="breadcrumb">TOP &gt; <span>ニュース</span></div>
+    <h1><em>NEWS</em>最新情報</h1>
+  </div>
+</div>
+<div class="news-section">
+  <div class="news-item">
+    <div class="news-date">2022.03.15</div>
+    <div><span class="news-cat">ニュース</span></div>
+    <div>
+      <div class="news-title">ホームページを作成しました</div>
+      <div class="news-body">この度、有限会社エンビジョンの公式ホームページを作成しました。会社の認知度の向上の一環として作成しております。今後、事業内容・施工実績・会社概要など各コンテンツを充実させていく予定です。引き続き弊社の事業をよろしくお願いいたします。</div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <small>&copy; 2024 有限会社エンビジョン All Rights Reserved.</small>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

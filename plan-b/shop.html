@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>公式オンラインショップ EPIRIRE | 有限会社エンビジョン</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--orange:#b89a4e;--dark:#0d0d0d;--dark2:#1a1a1a;--mid:#2a2a2a;--gray:#7a7a7a;}
+body{font-family:'Noto Sans JP',sans-serif;background:#fff;color:#333;}
+a{text-decoration:none;color:inherit;}
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,.96);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;border-bottom:1px solid rgba(255,255,255,.06);}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-sq{width:32px;height:32px;background:var(--orange);display:flex;align-items:center;justify-content:center;}
+.logo-sq svg{fill:#fff;width:16px;height:16px;}
+.logo-name{font-family:'Oswald',sans-serif;color:#fff;font-size:17px;letter-spacing:.08em;}
+nav{display:flex;gap:0;}
+nav a{color:rgba(255,255,255,.7);font-size:12px;letter-spacing:.06em;padding:0 14px;height:64px;display:flex;align-items:center;border-right:1px solid rgba(255,255,255,.06);transition:all .2s;}
+nav a:first-child{border-left:1px solid rgba(255,255,255,.06);}
+nav a:hover,nav a.active{color:#fff;background:rgba(255,255,255,.06);}
+nav a.shop-link,nav a.shop-link.active{color:var(--orange);}
+nav a.cta-link{background:var(--orange);color:#fff!important;border:none;}
+
+.page-hero{margin-top:64px;position:relative;height:280px;overflow:hidden;background:var(--dark);}
+.page-hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.3);}
+.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 64px;}
+.breadcrumb{color:rgba(255,255,255,.5);font-size:12px;margin-bottom:12px;}
+.breadcrumb span{color:var(--orange);}
+.page-hero h1{font-family:'Oswald',sans-serif;color:#fff;font-size:44px;letter-spacing:.05em;}
+.page-hero h1 em{display:block;font-style:normal;font-size:13px;letter-spacing:.2em;color:var(--orange);margin-bottom:8px;}
+
+/* SHOP LAYOUT */
+.shop-layout{max-width:1200px;margin:0 auto;padding:40px 40px 80px;display:grid;grid-template-columns:220px 1fr;gap:40px;}
+
+/* SIDEBAR */
+.sidebar{}
+.sidebar-section{margin-bottom:32px;}
+.sidebar-title{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:.15em;color:#999;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #eee;}
+.sidebar-link{display:block;font-size:13px;color:#555;padding:8px 0;border-bottom:1px solid #f5f5f5;transition:color .2s;}
+.sidebar-link:hover,.sidebar-link.active{color:var(--orange);}
+.sidebar-link.active{font-weight:700;}
+.count{color:#aaa;font-size:11px;margin-left:4px;}
+
+/* PRODUCT GRID */
+.product-area{}
+.product-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid #111;}
+.product-header h2{font-family:'Oswald',sans-serif;font-size:22px;letter-spacing:.05em;}
+.product-count{color:#999;font-size:13px;}
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.product-card{border:1px solid #eee;transition:box-shadow .2s;}
+.product-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.1);}
+.product-img{position:relative;aspect-ratio:1;overflow:hidden;background:#f8f8f8;display:flex;align-items:center;justify-content:center;}
+.product-img img{width:100%;height:100%;object-fit:cover;}
+.product-img .no-img{color:#ccc;font-size:40px;}
+.sold-badge{position:absolute;top:8px;right:8px;background:#999;color:#fff;font-size:10px;padding:3px 8px;}
+.new-badge{position:absolute;top:8px;left:8px;background:var(--orange);color:#fff;font-size:10px;padding:3px 8px;}
+.product-info{padding:14px 16px;}
+.product-brand{font-size:11px;letter-spacing:.1em;color:var(--orange);margin-bottom:4px;}
+.product-name{font-size:13px;color:#333;line-height:1.5;margin-bottom:8px;}
+.product-price{font-family:'Oswald',sans-serif;font-size:18px;color:#111;}
+.product-price small{font-size:11px;color:#999;font-family:'Noto Sans JP',sans-serif;margin-left:2px;}
+.product-stock{font-size:11px;margin-top:4px;}
+.product-stock.instock{color:#2a7a2a;}
+.product-stock.soldout{color:#999;}
+.add-cart{width:100%;background:var(--orange);color:#fff;border:none;padding:10px;font-size:12px;font-family:'Noto Sans JP',sans-serif;cursor:pointer;letter-spacing:.06em;transition:opacity .2s;margin-top:10px;}
+.add-cart:hover{opacity:.85;}
+.add-cart.soldout{background:#ccc;cursor:not-allowed;}
+
+/* FLOWER SECTION */
+.flower-section{margin-top:48px;}
+.flower-section h2{font-family:'Oswald',sans-serif;font-size:22px;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid #111;}
+
+footer{background:#000;padding:48px 0 20px;}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 40px;}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:40px;}
+.footer-logo-area .logo-name{font-family:'Oswald',sans-serif;color:#fff;font-size:18px;letter-spacing:.08em;margin-bottom:12px;}
+.footer-logo-area address{color:var(--gray);font-size:12px;line-height:1.9;font-style:normal;}
+.footer-nav-col h4{color:#fff;font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:.1em;margin-bottom:16px;}
+.footer-nav-col a{display:block;color:var(--gray);font-size:12px;margin-bottom:8px;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;display:flex;justify-content:space-between;}
+.footer-bottom small{color:rgba(255,255,255,.25);font-size:11px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <div class="logo-sq"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9H18v9H6v-9z"/></svg></div>
+    <span class="logo-name">ENVISION</span>
+  </div>
+  <nav>
+    <a href="index.html">TOP</a>
+    <a href="service.html">事業内容</a>
+    <a href="works.html">施工実績</a>
+    <a href="company.html">会社案内</a>
+    <a href="news.html">ニュース</a>
+    <a href="shop.html" class="shop-link active">オンラインショップ</a>
+    <a href="contact.html" class="cta-link">お問い合わせ</a>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/index/bg_service_lower.jpg" alt="オンラインショップ">
+  <div class="hero-content">
+    <div class="breadcrumb">TOP &gt; <span>オンラインショップ</span></div>
+    <h1><em>ONLINE SHOP</em>EPIRIRE（エピリール）</h1>
+  </div>
+</div>
+
+<div class="shop-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">CATEGORY</div>
+      <a href="#cosme" class="sidebar-link active">コスメ <span class="count">(31)</span></a>
+      <a href="#" class="sidebar-link" style="padding-left:12px;font-size:12px;">track</a>
+      <a href="#" class="sidebar-link" style="padding-left:12px;font-size:12px;">フェルミナ</a>
+      <a href="#" class="sidebar-link" style="padding-left:12px;font-size:12px;">CALATAS</a>
+      <a href="#" class="sidebar-link" style="padding-left:12px;font-size:12px;">イイスタンダード</a>
+      <a href="#" class="sidebar-link" style="padding-left:12px;font-size:12px;">ハレマオ</a>
+      <a href="#" class="sidebar-link" style="padding-left:12px;font-size:12px;">ELEVATE</a>
+      <a href="#" class="sidebar-link" style="padding-left:12px;font-size:12px;">putelo</a>
+      <a href="#flower" class="sidebar-link">プリザーブドフラワー <span class="count">(8)</span></a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">SHOP INFO</div>
+      <p style="font-size:12px;color:#777;line-height:1.8;">営業時間<br>9:00 〜 24:00<br>年中無休<br><br>お支払い<br>クレジットカードのみ<br><br>発送<br>注文確定から5日以内</p>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">LINKS</div>
+      <a href="contact.html" class="sidebar-link">お問い合わせ</a>
+      <a href="#" class="sidebar-link">特定商取引法に基づく表記</a>
+      <a href="#" class="sidebar-link">プライバシーポリシー</a>
+    </div>
+  </aside>
+
+  <!-- PRODUCTS -->
+  <main>
+    <div id="cosme">
+      <div class="product-header">
+        <h2>コスメ</h2>
+        <span class="product-count">31件の商品</span>
+      </div>
+      <div class="product-grid">
+        <!-- ELEVATE -->
+        <div class="product-card">
+          <div class="product-img"><div class="no-img">🧴</div><span class="new-badge">在庫あり</span></div>
+          <div class="product-info">
+            <div class="product-brand">ELEVATE</div>
+            <div class="product-name">トライアルセット</div>
+            <div class="product-price">¥1,100<small>（税込）</small></div>
+            <div class="product-stock instock">● 在庫あり</div>
+            <button class="add-cart">カートに入れる</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="no-img">🧴</div></div>
+          <div class="product-info">
+            <div class="product-brand">ELEVATE</div>
+            <div class="product-name">フェイスウオッシュ</div>
+            <div class="product-price">¥2,000<small>（税込）</small></div>
+            <div class="product-stock instock">● 在庫あり</div>
+            <button class="add-cart">カートに入れる</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="no-img">💧</div></div>
+          <div class="product-info">
+            <div class="product-brand">ELEVATE</div>
+            <div class="product-name">テクスチャーコントロール</div>
+            <div class="product-price">¥3,000<small>（税込）</small></div>
+            <div class="product-stock instock">● 在庫あり</div>
+            <button class="add-cart">カートに入れる</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="no-img">💧</div></div>
+          <div class="product-info">
+            <div class="product-brand">ELEVATE</div>
+            <div class="product-name">バランシングローション</div>
+            <div class="product-price">¥3,000<small>（税込）</small></div>
+            <div class="product-stock instock">● 在庫あり</div>
+            <button class="add-cart">カートに入れる</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="no-img">🌸</div><span class="sold-badge">品切れ</span></div>
+          <div class="product-info">
+            <div class="product-brand">ELEVATE</div>
+            <div class="product-name">ボディミスト</div>
+            <div class="product-price">¥2,800<small>（税込）</small></div>
+            <div class="product-stock soldout">○ 品切れ中</div>
+            <button class="add-cart soldout" disabled>品切れ</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="no-img">🌸</div><span class="sold-badge">品切れ</span></div>
+          <div class="product-info">
+            <div class="product-brand">ELEVATE</div>
+            <div class="product-name">スキャルプアクティブシャンプー</div>
+            <div class="product-price">¥3,000<small>（税込）</small></div>
+            <div class="product-stock soldout">○ 品切れ中</div>
+            <button class="add-cart soldout" disabled>品切れ</button>
+          </div>
+        </div>
+        <!-- CALATAS -->
+        <div class="product-card">
+          <div class="product-img"><div class="no-img">✨</div><span class="new-badge">在庫あり</span></div>
+          <div class="product-info">
+            <div class="product-brand">CALATAS</div>
+            <div class="product-name">ホワイリアボディクリーム</div>
+            <div class="product-price">¥2,680<small>（税込）</small></div>
+            <div class="product-stock instock">● 在庫あり</div>
+            <button class="add-cart">カートに入れる</button>
+          </div>
+        </div>
+        <!-- イイスタンダード -->
+        <div class="product-card">
+          <div class="product-img"><div class="no-img">🧴</div><span class="new-badge">在庫あり</span></div>
+          <div class="product-info">
+            <div class="product-brand">イイスタンダード</div>
+            <div class="product-name">トラベルセット</div>
+            <div class="product-price">¥3,300<small>（税込）</small></div>
+            <div class="product-stock instock">● 在庫あり</div>
+            <button class="add-cart">カートに入れる</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="no-img">🧴</div><span class="new-badge">在庫あり</span></div>
+          <div class="product-info">
+            <div class="product-brand">イイスタンダード</div>
+            <div class="product-name">ボディセラムウォッシュ</div>
+            <div class="product-price">¥3,300<small>（税込）</small></div>
+            <div class="product-stock instock">● 在庫あり</div>
+            <button class="add-cart">カートに入れる</button>
+          </div>
+        </div>
+        <!-- ハレマオ -->
+        <div class="product-card">
+          <div class="product-img"><div class="no-img">🌊</div><span class="sold-badge">品切れ</span></div>
+          <div class="product-info">
+            <div class="product-brand">ハレマオ</div>
+            <div class="product-name">UVカットスプレー LT COOL 80g</div>
+            <div class="product-price">¥1,200<small>（税込）</small></div>
+            <div class="product-stock soldout">○ 品切れ中</div>
+            <button class="add-cart soldout" disabled>品切れ</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="no-img">🌊</div><span class="sold-badge">品切れ</span></div>
+          <div class="product-info">
+            <div class="product-brand">ハレマオ</div>
+            <div class="product-name">シャンプーミント10 250ml</div>
+            <div class="product-price">¥1,600<small>（税込）</small></div>
+            <div class="product-stock soldout">○ 品切れ中</div>
+            <button class="add-cart soldout" disabled>品切れ</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="no-img">🌊</div><span class="sold-badge">品切れ</span></div>
+          <div class="product-info">
+            <div class="product-brand">ハレマオ</div>
+            <div class="product-name">エンリッチパック</div>
+            <div class="product-price">¥2,500<small>（税込）</small></div>
+            <div class="product-stock soldout">○ 品切れ中</div>
+            <button class="add-cart soldout" disabled>品切れ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLOWER -->
+    <div id="flower" class="flower-section">
+      <h2>プリザーブドフラワー</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-img"><div class="no-img">🌸</div><span class="sold-badge">品切れ</span></div>
+          <div class="product-info">
+            <div class="product-brand">EPIRIRE</div>
+            <div class="product-name">秋のお月さま</div>
+            <div class="product-price">¥6,500<small>（税込）</small></div>
+            <div class="product-stock soldout">○ 品切れ中</div>
+            <button class="add-cart soldout" disabled>品切れ</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="no-img">🌸</div><span class="sold-badge">品切れ</span></div>
+          <div class="product-info">
+            <div class="product-brand">EPIRIRE</div>
+            <div class="product-name">ピアノ♪♪(黒)</div>
+            <div class="product-price">¥6,500<small>（税込）</small></div>
+            <div class="product-stock soldout">○ 品切れ中</div>
+            <button class="add-cart soldout" disabled>品切れ</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="no-img">🌸</div><span class="sold-badge">品切れ</span></div>
+          <div class="product-info">
+            <div class="product-brand">EPIRIRE フルオーダー</div>
+            <div class="product-name">仏花 ケース・花器無し</div>
+            <div class="product-price">¥13,000<small>（税込）</small></div>
+            <div class="product-stock soldout">○ 品切れ中</div>
+            <button class="add-cart soldout" disabled>品切れ</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="no-img">🌸</div><span class="sold-badge">品切れ</span></div>
+          <div class="product-info">
+            <div class="product-brand">EPIRIRE フルオーダー</div>
+            <div class="product-name">ピンク ケース無し</div>
+            <div class="product-price">¥16,500<small>（税込）</small></div>
+            <div class="product-stock soldout">○ 品切れ中</div>
+            <button class="add-cart soldout" disabled>品切れ</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="no-img">🌿</div><span class="sold-badge">品切れ</span></div>
+          <div class="product-info">
+            <div class="product-brand">EPIRIRE フルオーダー</div>
+            <div class="product-name">グリーン ケース無し</div>
+            <div class="product-price">¥18,000<small>（税込）</small></div>
+            <div class="product-stock soldout">○ 品切れ中</div>
+            <button class="add-cart soldout" disabled>品切れ</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><div class="no-img">🌹</div><span class="sold-badge">品切れ</span></div>
+          <div class="product-info">
+            <div class="product-brand">EPIRIRE フルオーダー</div>
+            <div class="product-name">レッド アクリルケース付き</div>
+            <div class="product-price">¥23,000<small>（税込）</small></div>
+            <div class="product-stock soldout">○ 品切れ中</div>
+            <button class="add-cart soldout" disabled>品切れ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo-area">
+        <div class="logo-name" style="margin-bottom:12px;">ENVISION</div>
+        <address>有限会社エンビジョン<br>〒709-0632 岡山県岡山市東区南古都134-103<br>TEL: 086-201-8666</address>
+      </div>
+      <div class="footer-nav-col">
+        <h4>COMPANY</h4>
+        <a href="index.html">TOP</a>
+        <a href="service.html">事業内容</a>
+        <a href="works.html">施工実績</a>
+        <a href="company.html">会社案内</a>
+      </div>
+      <div class="footer-nav-col">
+        <h4>LINKS</h4>
+        <a href="news.html">ニュース</a>
+        <a href="shop.html">オンラインショップ</a>
+        <a href="contact.html">お問い合わせ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <small>&copy; 2024 有限会社エンビジョン All Rights Reserved.</small>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
