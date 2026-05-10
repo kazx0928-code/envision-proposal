@@ -2,65 +2,84 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ニュース | 有限会社エンビジョン</title>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-:root{--orange:#b89a4e;--dark:#0d0d0d;--dark2:#1a1a1a;--mid:#2a2a2a;--gray:#7a7a7a;}
-body{font-family:'Noto Sans JP',sans-serif;background:#fff;color:#333;}
-a{text-decoration:none;color:inherit;}
-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,.96);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;border-bottom:1px solid rgba(255,255,255,.06);}
-.logo{display:flex;align-items:center;gap:12px;}
-.logo-sq{width:32px;height:32px;background:var(--orange);display:flex;align-items:center;justify-content:center;}
-.logo-sq svg{fill:#fff;width:16px;height:16px;}
-.logo-name{font-family:'Oswald',sans-serif;color:#fff;font-size:17px;letter-spacing:.08em;}
-nav{display:flex;gap:0;}
-nav a{color:rgba(255,255,255,.7);font-size:12px;letter-spacing:.06em;padding:0 14px;height:64px;display:flex;align-items:center;border-right:1px solid rgba(255,255,255,.06);transition:all .2s;}
-nav a:first-child{border-left:1px solid rgba(255,255,255,.06);}
-nav a:hover,nav a.active{color:#fff;background:rgba(255,255,255,.06);}
-nav a.shop-link{color:var(--orange);}
-nav a.cta-link{background:var(--orange);color:#fff!important;border:none;}
-.page-hero{margin-top:64px;position:relative;height:280px;overflow:hidden;background:var(--dark);}
-.page-hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.3);}
-.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 64px;}
-.breadcrumb{color:rgba(255,255,255,.5);font-size:12px;margin-bottom:12px;}
-.breadcrumb span{color:var(--orange);}
-.page-hero h1{font-family:'Oswald',sans-serif;color:#fff;font-size:44px;letter-spacing:.05em;}
-.page-hero h1 em{display:block;font-style:normal;font-size:13px;letter-spacing:.2em;color:var(--orange);margin-bottom:8px;}
-.news-section{max-width:860px;margin:64px auto;padding:0 40px 80px;}
-.news-item{display:grid;grid-template-columns:120px 100px 1fr;gap:24px;align-items:flex-start;padding:24px 0;border-bottom:1px solid #eee;}
-.news-date{font-family:'Oswald',sans-serif;color:var(--orange);font-size:14px;}
-.news-cat{background:var(--dark);color:#fff;font-size:11px;padding:3px 10px;display:inline-block;text-align:center;}
-.news-title{font-size:15px;color:#111;font-weight:700;margin-bottom:8px;}
-.news-body{font-size:13px;color:#666;line-height:1.8;}
-footer{background:#000;padding:40px 0 20px;}
-.footer-inner{max-width:1200px;margin:0 auto;padding:0 40px;}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;text-align:center;}
-.footer-bottom small{color:rgba(255,255,255,.25);font-size:11px;}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0b1f3a;--gold:#b89a4e;--gold2:#d4b86a;--gray:#6b7280;--light:#f8f9fb;--white:#fff}
+body{font-family:'Noto Sans JP',sans-serif;color:#1a1a2e;background:var(--white)}
+a{text-decoration:none;color:inherit}
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(255,255,255,.97);box-shadow:0 1px 20px rgba(0,0,0,.08)}
+.header-inner{max-width:1300px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:14px}
+.logo-emblem{width:40px;height:40px;background:var(--navy);display:flex;align-items:center;justify-content:center;border-radius:2px}
+.logo-emblem svg{fill:var(--gold);width:22px;height:22px}
+.logo-text{display:flex;flex-direction:column}
+.logo-en{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:700;letter-spacing:.12em;color:var(--navy)}
+.logo-ja{font-size:9px;letter-spacing:.18em;color:var(--gray);margin-top:1px}
+nav ul{list-style:none;display:flex}
+nav ul li a{color:var(--navy);text-decoration:none;font-size:12px;font-weight:500;padding:26px 14px;display:block;transition:color .2s;letter-spacing:.04em}
+nav ul li a:hover,nav ul li a.active{color:var(--gold)}
+nav ul li a.shop-link{color:var(--gold);font-weight:700}
+nav ul li a.cta-link{background:var(--navy);color:var(--white)!important;padding:10px 18px;margin:auto 0 auto 8px;font-size:11px;letter-spacing:.08em}
+nav ul li a.cta-link:hover{background:var(--gold)}
+.header-tel{color:var(--navy);font-size:15px;font-weight:700;letter-spacing:.04em}
+.header-tel small{display:block;font-size:9px;color:var(--gray);margin-top:1px;text-align:center}
+.page-hero{padding:140px 0 70px;background:var(--navy);text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:url('https://envision.okayama.jp/wp-content/themes/eTheme/img/index/service_upper2.jpg') center/cover;opacity:.1}
+.hero-inner{position:relative;z-index:1}
+.page-en{font-size:10px;letter-spacing:.5em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.page-title{font-family:'Noto Serif JP',serif;font-size:clamp(36px,5vw,56px);font-weight:700;color:var(--white)}
+.breadcrumb{margin-top:16px;font-size:12px;color:rgba(255,255,255,.4)}
+.breadcrumb a{color:rgba(255,255,255,.4)}
+.news-section{max-width:900px;margin:80px auto;padding:0 40px 100px}
+.news-item{display:grid;grid-template-columns:140px 110px 1fr;gap:28px;align-items:start;padding:28px 0;border-bottom:1px solid #e5e7eb}
+.news-item:last-child{border-bottom:none}
+.news-date{font-family:'Noto Serif JP',serif;color:var(--gold);font-size:14px;font-weight:600;padding-top:2px}
+.news-cat{background:var(--navy);color:var(--white);font-size:10px;padding:3px 12px;display:inline-block;letter-spacing:.1em}
+.news-title{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px}
+.news-body{font-size:13px;color:var(--gray);line-height:2}
+footer{background:var(--navy);padding:60px 0 28px;color:rgba(255,255,255,.4)}
+.ft-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:40px}
+.ft-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.ft-logo-emb{width:34px;height:34px;background:var(--gold);display:flex;align-items:center;justify-content:center;border-radius:2px}
+.ft-logo-emb svg{fill:var(--navy);width:18px;height:18px}
+.ft-logo-name{font-family:'Noto Serif JP',serif;color:var(--white);font-size:15px;letter-spacing:.1em;font-weight:700}
+.ft-desc{font-size:12px;line-height:2;margin-bottom:20px}
+.ft-info{font-size:11px;line-height:2.2}
+.ft-heading{font-family:'Noto Serif JP',serif;color:var(--white);font-size:12px;letter-spacing:.15em;margin-bottom:18px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.1)}
+.ft-links{display:flex;flex-direction:column;gap:8px}
+.ft-links a{font-size:12px;color:rgba(255,255,255,.4);transition:color .2s}
+.ft-links a:hover{color:var(--gold)}
+.ft-bottom{max-width:1200px;margin:40px auto 0;padding:20px 40px 0;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center}
+.ft-copy{font-size:11px}
 </style>
 </head>
 <body>
 <header>
-  <div class="logo">
-    <div class="logo-sq"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9H18v9H6v-9z"/></svg></div>
-    <span class="logo-name">ENVISION</span>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-emblem"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9H18v9H6v-9z"/></svg></div>
+      <div class="logo-text"><span class="logo-en">ENVISION</span><span class="logo-ja">有限会社エンビジョン</span></div>
+    </a>
+    <nav><ul>
+      <li><a href="index.html">TOP</a></li>
+      <li><a href="service.html">事業内容</a></li>
+      <li><a href="works.html">施工実績</a></li>
+      <li><a href="company.html">会社案内</a></li>
+      <li><a href="news.html" class="active">ニュース</a></li>
+      <li><a href="shop.html" class="shop-link">公式オンラインショップ</a></li>
+      <li><a href="contact.html" class="cta-link">お問い合わせ</a></li>
+    </ul></nav>
+    <a href="tel:0862018666" class="header-tel">086-201-8666<small>平日 9:00〜17:30</small></a>
   </div>
-  <nav>
-    <a href="index.html">TOP</a>
-    <a href="service.html">事業内容</a>
-    <a href="works.html">施工実績</a>
-    <a href="company.html">会社案内</a>
-    <a href="news.html" class="active">ニュース</a>
-    <a href="shop.html" class="shop-link">オンラインショップ</a>
-    <a href="contact.html" class="cta-link">お問い合わせ</a>
-  </nav>
 </header>
 <div class="page-hero">
-  <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/index/service_upper2.jpg" alt="ニュース">
-  <div class="hero-content">
-    <div class="breadcrumb">TOP &gt; <span>ニュース</span></div>
-    <h1><em>NEWS</em>最新情報</h1>
+  <div class="hero-inner">
+    <p class="page-en">Latest News</p>
+    <h1 class="page-title">ニュース</h1>
+    <p class="breadcrumb"><a href="index.html">TOP</a> &gt; ニュース</p>
   </div>
 </div>
 <div class="news-section">
@@ -68,16 +87,62 @@ footer{background:#000;padding:40px 0 20px;}
     <div class="news-date">2022.03.15</div>
     <div><span class="news-cat">ニュース</span></div>
     <div>
-      <div class="news-title">ホームページを作成しました</div>
-      <div class="news-body">この度、有限会社エンビジョンの公式ホームページを作成しました。会社の認知度の向上の一環として作成しております。今後、事業内容・施工実績・会社概要など各コンテンツを充実させていく予定です。引き続き弊社の事業をよろしくお願いいたします。</div>
+      <h2 class="news-title">ホームページを作成しました</h2>
+      <p class="news-body">有限会社エンビジョンのホームページを作成しました。<br>
+      弊社は岡山県で土木・とび土工・電気・解体の建設工事全般を承っております。<br>
+      補助金のご相談やシロアリ無料相談なども対応しておりますので、お気軽にお問い合わせください。</p>
     </div>
   </div>
 </div>
 <footer>
-  <div class="footer-inner">
-    <div class="footer-bottom">
-      <small>&copy; 2024 有限会社エンビジョン All Rights Reserved.</small>
+  <div class="ft-inner">
+    <div>
+      <div class="ft-logo">
+        <div class="ft-logo-emb"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9H18v9H6v-9z"/></svg></div>
+        <span class="ft-logo-name">ENVISION</span>
+      </div>
+      <p class="ft-desc">岡山県の土木・建設工事を<br>誠実な技術でサポートします</p>
+      <div class="ft-info">
+        〒704-8134<br>
+        岡山市東区南古都134-103<br>
+        TEL：086-201-8666<br>
+        平日 9:00〜17:30
+      </div>
     </div>
+    <div>
+      <p class="ft-heading">MENU</p>
+      <div class="ft-links">
+        <a href="index.html">TOP</a>
+        <a href="service.html">事業内容</a>
+        <a href="works.html">施工実績</a>
+        <a href="company.html">会社案内</a>
+        <a href="news.html">ニュース</a>
+        <a href="shop.html">公式オンラインショップ</a>
+        <a href="contact.html">お問い合わせ</a>
+      </div>
+    </div>
+    <div>
+      <p class="ft-heading">SERVICE</p>
+      <div class="ft-links">
+        <a href="service.html">土木工事</a>
+        <a href="service.html">とび土工工事</a>
+        <a href="service.html">電気工事</a>
+        <a href="service.html">解体工事</a>
+        <a href="service.html">補助金サポート</a>
+        <a href="service.html">しろあり無料相談</a>
+      </div>
+    </div>
+    <div>
+      <p class="ft-heading">RELATED</p>
+      <div class="ft-links">
+        <a href="https://epirire.com/" target="_blank">EPIRIRE（コスメ）</a>
+        <a href="https://www.instagram.com/epirire_official/" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <small class="ft-copy">© 2022 有限会社エンビジョン All Rights Reserved.</small>
+    <small><a href="https://envision.okayama.jp/" style="color:rgba(255,255,255,.2)">現行サイトを見る</a></small>
   </div>
 </footer>
 </body>
