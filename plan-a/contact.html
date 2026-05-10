@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>お問い合わせ | 有限会社エンビジョン</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--black:#0d0d0d;--orange:#e85c00;--orange2:#ff7a1a;--gray:#888;--light:#f5f5f5;--white:#fff}
+body{font-family:'Noto Sans JP',sans-serif;color:var(--black);background:var(--white)}
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(13,13,13,0.96);border-bottom:1px solid rgba(232,92,0,.3)}
+.header-inner{max-width:1300px;margin:0 auto;padding:0 30px;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo img{height:40px;filter:brightness(0) invert(1)}
+nav ul{list-style:none;display:flex}
+nav ul li a{color:rgba(255,255,255,.8);text-decoration:none;font-size:13px;padding:25px 16px;display:block;transition:color .2s;border-bottom:2px solid transparent}
+nav ul li a:hover,nav ul li a.active{color:var(--orange);border-bottom-color:var(--orange)}
+.header-tel{color:#fff;font-size:14px;font-weight:700;text-decoration:none}
+.header-tel small{display:block;font-size:10px;color:var(--gray);margin-top:2px;text-align:center}
+.page-hero{padding:140px 0 80px;background:var(--black);text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:var(--black)}
+.page-hero-inner{position:relative;z-index:1}
+.page-eyebrow{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.45em;color:var(--orange);text-transform:uppercase;margin-bottom:14px}
+.page-title{font-family:'Oswald',sans-serif;font-size:clamp(42px,6vw,70px);font-weight:700;color:#fff}
+.breadcrumb{margin-top:18px;font-size:12px;color:var(--gray)}
+.breadcrumb a{color:var(--gray);text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 40px}
+.sec-contact{padding:100px 0;background:var(--white)}
+.ct-grid{display:grid;grid-template-columns:1fr 2fr;gap:60px;margin-top:56px}
+.ct-info-block{background:var(--black);padding:48px 36px}
+.ct-eyebrow{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:.4em;color:var(--orange);text-transform:uppercase;margin-bottom:14px}
+.ct-info-h3{font-family:'Oswald',sans-serif;font-size:22px;color:#fff;font-weight:700;margin-bottom:36px}
+.ct-item{margin-bottom:32px}
+.ct-item-lbl{font-size:10px;color:var(--gray);letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px}
+.ct-item-val{color:#fff;font-size:16px;font-weight:700}
+.ct-item-sub{color:var(--gray);font-size:12px;margin-top:4px}
+.ct-divider{border:none;border-top:1px solid rgba(255,255,255,.1);margin:28px 0}
+.ct-note{font-size:12px;color:var(--gray);line-height:2}
+.form-block{background:var(--light);padding:48px}
+.form-h3{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;margin-bottom:32px}
+.form-row{margin-bottom:20px}
+.form-row label{display:block;font-size:11px;color:var(--gray);letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px}
+.req{color:var(--orange);margin-left:4px}
+.form-row input,.form-row select,.form-row textarea{width:100%;background:#fff;border:1px solid #ddd;color:var(--black);padding:12px 14px;font-size:14px;font-family:'Noto Sans JP',sans-serif;transition:border-color .2s;outline:none}
+.form-row input:focus,.form-row select:focus,.form-row textarea:focus{border-color:var(--orange)}
+.form-row textarea{height:140px;resize:vertical}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-submit{width:100%;background:var(--orange);color:#fff;border:none;padding:16px;font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .2s;margin-top:8px}
+.form-submit:hover{background:var(--orange2)}
+footer{background:#060606;padding:50px 0 26px;color:var(--gray)}
+.ft-inner{max-width:1200px;margin:0 auto;padding:0 40px}
+.ft-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px;margin-bottom:40px}
+.ft-logo img{height:30px;filter:brightness(0) invert(1);opacity:.5;margin-bottom:12px}
+.ft-logo p{font-size:12px;line-height:1.9}
+.ft-nav h6{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.25em;color:#fff;margin-bottom:16px;text-transform:uppercase}
+.ft-nav ul{list-style:none}
+.ft-nav ul li a{color:var(--gray);text-decoration:none;font-size:12px;line-height:2}
+.ft-nav ul li a:hover{color:var(--orange)}
+.ft-ct h6{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.25em;color:#fff;margin-bottom:16px;text-transform:uppercase}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;font-size:11px;color:rgba(255,255,255,.18)}
+.plan-back{position:fixed;bottom:28px;right:28px;background:var(--orange);color:#fff;padding:8px 18px;font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;z-index:999;text-decoration:none}
+@media(max-width:900px){.ct-grid,.ft-grid{grid-template-columns:1fr}.form-row-2{grid-template-columns:1fr}nav ul{display:none}}
+</style>
+</head>
+<body>
+<a href="../" class="plan-back">← 提案一覧</a>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/common/logo.png" alt="エンビジョン"></a>
+    <nav><ul>
+      <li><a href="index.html">TOP</a></li>
+      <li><a href="service.html">事業内容</a></li>
+      <li><a href="works.html">施工実績</a></li>
+      <li><a href="company.html">会社案内</a></li>
+      <li><a href="contact.html" class="active">お問い合わせ</a></li>
+    </ul></nav>
+    <a href="tel:0862018666" class="header-tel">086-201-8666<small>平日 9:00〜17:30</small></a>
+  </div>
+</header>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-eyebrow">Contact</p>
+    <h1 class="page-title">お問い合わせ</h1>
+    <p class="breadcrumb"><a href="index.html">TOP</a> &gt; お問い合わせ</p>
+  </div>
+</div>
+<section class="sec-contact">
+  <div class="wrap">
+    <p style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.45em;color:var(--orange);text-transform:uppercase;margin-bottom:12px">Contact</p>
+    <h2 style="font-family:'Oswald',sans-serif;font-size:42px;font-weight:700;margin-bottom:0">お問い合わせ</h2>
+    <p style="color:var(--gray);font-size:14px;line-height:2;margin-top:16px;max-width:600px">工事のご依頼・お見積り・各種ご相談は、お電話またはフォームよりお気軽にどうぞ。</p>
+    <div class="ct-grid">
+      <div class="ct-info-block">
+        <p class="ct-eyebrow">Info</p>
+        <h3 class="ct-info-h3">お気軽にご連絡ください</h3>
+        <div class="ct-item">
+          <div class="ct-item-lbl">電話番号</div>
+          <div class="ct-item-val">086-201-8666</div>
+          <div class="ct-item-sub">平日 9:00〜17:30</div>
+        </div>
+        <div class="ct-item">
+          <div class="ct-item-lbl">FAX</div>
+          <div class="ct-item-val">086-206-4531</div>
+        </div>
+        <hr class="ct-divider">
+        <div class="ct-item">
+          <div class="ct-item-lbl">所在地</div>
+          <div class="ct-item-val" style="font-size:14px;line-height:1.8">〒709-0632<br>岡山県岡山市東区<br>南古都134-103</div>
+        </div>
+        <hr class="ct-divider">
+        <p class="ct-note">建設業許可：岡山県知事許可（般-6）第25911号<br>岡山県電気工事工業組合 加入</p>
+      </div>
+      <div class="form-block">
+        <h3 class="form-h3">お問い合わせフォーム</h3>
+        <div class="form-row">
+          <label>お問い合わせ区分</label>
+          <select>
+            <option>工事のご依頼</option>
+            <option>お見積りのご依頼</option>
+            <option>補助金について</option>
+            <option>しろあり無料相談</option>
+            <option>求人について</option>
+            <option>一般のお問合わせ</option>
+          </select>
+        </div>
+        <div class="form-row-2">
+          <div class="form-row"><label>お名前<span class="req">*</span></label><input type="text" placeholder="山田 太郎"></div>
+          <div class="form-row"><label>ふりがな<span class="req">*</span></label><input type="text" placeholder="やまだ たろう"></div>
+        </div>
+        <div class="form-row-2">
+          <div class="form-row"><label>電話番号<span class="req">*</span></label><input type="tel" placeholder="086-000-0000"></div>
+          <div class="form-row"><label>メールアドレス<span class="req">*</span></label><input type="email" placeholder="example@email.com"></div>
+        </div>
+        <div class="form-row"><label>団体名（自治体・企業名等）</label><input type="text" placeholder="〇〇株式会社"></div>
+        <div class="form-row-2">
+          <div class="form-row"><label>郵便番号</label><input type="text" placeholder="000-0000"></div>
+          <div class="form-row"><label>都道府県</label><select><option>岡山県</option><option>広島県</option><option>兵庫県</option><option>大阪府</option><option>その他</option></select></div>
+        </div>
+        <div class="form-row"><label>お問い合わせ内容<span class="req">*</span></label><textarea placeholder="ご相談内容・工事の場所・規模等をできるだけ詳しくご記入ください。"></textarea></div>
+        <button class="form-submit">送信する →</button>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="ft-inner">
+    <div class="ft-grid">
+      <div class="ft-logo"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/common/logo.png" alt="エンビジョン"><p>岡山市東区を拠点に地域の建設を支えます。</p></div>
+      <div class="ft-nav"><h6>Navigation</h6><ul><li><a href="index.html">TOP</a></li><li><a href="service.html">事業内容</a></li><li><a href="works.html">施工実績</a></li><li><a href="company.html">会社案内</a></li><li><a href="contact.html">お問い合わせ</a></li></ul></div>
+      <div class="ft-ct"><h6>Contact</h6><p style="font-size:22px;font-weight:700;color:#fff">086-201-8666</p><p style="font-size:12px;margin-top:6px">平日 9:00〜17:30</p></div>
+    </div>
+    <div class="ft-bottom">© 2024 有限会社エンビジョン All Rights Reserved.</div>
+  </div>
+</footer>
+</body>
+</html>

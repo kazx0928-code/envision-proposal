@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせ | 有限会社エンビジョン</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--green:#1a4a2e;--terra:#c0623a;--cream:#faf5ef;--brown:#3d2b1f;}
+body{font-family:'Noto Sans JP',sans-serif;background:#fff;color:#333;}
+a{text-decoration:none;color:inherit;}
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,74,46,0.97);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;}
+.logo-wrap{display:flex;align-items:center;gap:12px;}
+.logo-mark{width:36px;height:36px;background:var(--terra);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.logo-mark svg{fill:#fff;width:18px;height:18px;}
+.logo-text{font-family:'Noto Serif JP',serif;color:#fff;font-size:14px;line-height:1.4;}
+nav{display:flex;gap:32px;}
+nav a{color:rgba(255,255,255,0.85);font-size:13px;letter-spacing:.06em;transition:color .2s;}
+nav a:hover,nav a.active{color:var(--terra);}
+.nav-cta{background:var(--terra);color:#fff!important;padding:8px 18px;border-radius:2px;font-size:12px!important;}
+
+.page-hero{margin-top:68px;position:relative;height:280px;overflow:hidden;}
+.page-hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.35);}
+.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 80px;background:linear-gradient(to right,rgba(26,74,46,.8) 40%,transparent);}
+.breadcrumb{color:rgba(255,255,255,.7);font-size:12px;margin-bottom:16px;}
+.breadcrumb span{color:var(--terra);}
+.page-hero h1{font-family:'Noto Serif JP',serif;color:#fff;font-size:40px;font-weight:700;line-height:1.3;}
+.page-hero h1 em{display:block;font-style:normal;font-size:14px;letter-spacing:.2em;color:rgba(255,255,255,.7);margin-bottom:8px;}
+
+/* CONTACT LAYOUT */
+.contact-section{padding:80px 0;background:var(--cream);}
+.contact-inner{max-width:1100px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:380px 1fr;gap:60px;}
+
+/* INFO PANEL */
+.info-panel{background:var(--green);padding:40px 36px;border-radius:4px;}
+.info-panel h2{font-family:'Noto Serif JP',serif;color:#fff;font-size:20px;margin-bottom:8px;}
+.info-panel .sub{color:rgba(255,255,255,.65);font-size:13px;margin-bottom:32px;line-height:1.7;}
+.info-item{display:flex;gap:16px;margin-bottom:24px;align-items:flex-start;}
+.info-icon{width:40px;height:40px;background:rgba(255,255,255,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.info-item h3{color:rgba(255,255,255,.7);font-size:11px;letter-spacing:.1em;margin-bottom:4px;}
+.info-item p{color:#fff;font-size:14px;line-height:1.5;}
+.info-divider{border:none;border-top:1px solid rgba(255,255,255,.15);margin:28px 0;}
+.response-badge{background:rgba(192,98,58,.3);border:1px solid rgba(192,98,58,.6);border-radius:4px;padding:16px 20px;margin-top:24px;}
+.response-badge p{color:rgba(255,255,255,.9);font-size:13px;line-height:1.7;}
+.response-badge strong{color:var(--terra);}
+
+/* FORM PANEL */
+.form-panel{background:#fff;padding:40px 48px;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,.06);}
+.form-panel h2{font-family:'Noto Serif JP',serif;color:var(--green);font-size:20px;margin-bottom:28px;}
+.form-group{margin-bottom:20px;}
+.form-group label{display:block;font-size:13px;color:#555;margin-bottom:6px;font-weight:700;}
+.form-group label .required{background:var(--terra);color:#fff;font-size:10px;padding:2px 6px;border-radius:2px;margin-left:6px;}
+.form-group label .optional{background:#ccc;color:#fff;font-size:10px;padding:2px 6px;border-radius:2px;margin-left:6px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+input,select,textarea{width:100%;border:1.5px solid #ddd;border-radius:3px;padding:10px 14px;font-size:14px;font-family:'Noto Sans JP',sans-serif;color:#333;transition:border-color .2s;background:#fafafa;}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--green);background:#fff;}
+textarea{min-height:140px;resize:vertical;}
+.form-note{font-size:12px;color:#999;margin-top:4px;}
+.submit-wrap{text-align:center;margin-top:32px;}
+.submit-btn{background:var(--green);color:#fff;border:none;padding:16px 64px;font-size:15px;font-family:'Noto Sans JP',sans-serif;border-radius:2px;cursor:pointer;letter-spacing:.1em;transition:opacity .2s;}
+.submit-btn:hover{opacity:.85;}
+.privacy-note{text-align:center;margin-top:16px;font-size:12px;color:#999;}
+
+footer{background:var(--brown);padding:48px 0 24px;}
+.footer-inner{max-width:1100px;margin:0 auto;padding:0 40px;}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:40px;}
+.footer-logo{font-family:'Noto Serif JP',serif;color:#fff;font-size:16px;line-height:1.5;}
+.footer-nav{display:flex;gap:32px;}
+.footer-nav a{color:rgba(255,255,255,.7);font-size:12px;transition:color .2s;}
+.footer-nav a:hover{color:var(--terra);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:20px;text-align:center;color:rgba(255,255,255,.4);font-size:11px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo-wrap">
+    <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9H18v9H6v-9z"/></svg></div>
+    <div class="logo-text">有限会社<br>エンビジョン</div>
+  </div>
+  <nav>
+    <a href="index.html">トップ</a>
+    <a href="service.html">事業内容</a>
+    <a href="works.html">施工実績</a>
+    <a href="company.html">会社案内</a>
+    <a href="contact.html" class="active nav-cta">お問い合わせ</a>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/bg_message.jpg" alt="お問い合わせ">
+  <div class="hero-content">
+    <div class="breadcrumb">トップ &gt; <span>お問い合わせ</span></div>
+    <h1><em>CONTACT</em>お問い合わせ</h1>
+  </div>
+</div>
+
+<div class="contact-section">
+  <div class="contact-inner">
+    <div class="info-panel">
+      <h2>お気軽にご相談ください</h2>
+      <p class="sub">工事のご依頼・お見積りのご相談など、<br>どんな小さなことでもお気軽にどうぞ。</p>
+
+      <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div>
+          <h3>お電話</h3>
+          <p>086-271-9889</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📠</div>
+        <div>
+          <h3>FAX</h3>
+          <p>086-271-9887</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div>
+          <h3>所在地</h3>
+          <p>〒703-8284<br>岡山県岡山市中区<br>平井6丁目5番9号</p>
+        </div>
+      </div>
+
+      <hr class="info-divider">
+
+      <div class="info-item">
+        <div class="info-icon">🕐</div>
+        <div>
+          <h3>営業時間</h3>
+          <p>平日 8:00 〜 17:00</p>
+        </div>
+      </div>
+
+      <div class="response-badge">
+        <p>フォームからのお問い合わせは<strong>2営業日以内</strong>にご返信いたします。お急ぎの場合はお電話でどうぞ。</p>
+      </div>
+    </div>
+
+    <div class="form-panel">
+      <h2>お問い合わせフォーム</h2>
+      <form>
+        <div class="form-group">
+          <label>お問い合わせ区分<span class="required">必須</span></label>
+          <select>
+            <option value="">選択してください</option>
+            <option>解体工事のご依頼</option>
+            <option>土木工事のご依頼</option>
+            <option>とび工事のご依頼</option>
+            <option>電気工事のご依頼</option>
+            <option>お見積りのご依頼</option>
+            <option>その他のご相談</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>お名前<span class="required">必須</span></label>
+            <input type="text" placeholder="例：岡山 太郎">
+          </div>
+          <div class="form-group">
+            <label>ふりがな<span class="required">必須</span></label>
+            <input type="text" placeholder="例：おかやま たろう">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>電話番号<span class="required">必須</span></label>
+            <input type="tel" placeholder="例：086-000-0000">
+          </div>
+          <div class="form-group">
+            <label>メールアドレス<span class="required">必須</span></label>
+            <input type="email" placeholder="例：info@example.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>団体・会社名<span class="optional">任意</span></label>
+          <input type="text" placeholder="例：〇〇株式会社">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>郵便番号<span class="optional">任意</span></label>
+            <input type="text" placeholder="例：700-0000">
+          </div>
+          <div class="form-group">
+            <label>都道府県<span class="optional">任意</span></label>
+            <select>
+              <option value="">選択</option>
+              <option selected>岡山県</option>
+              <option>広島県</option>
+              <option>鳥取県</option>
+              <option>兵庫県</option>
+              <option>その他</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>お問い合わせ内容<span class="required">必須</span></label>
+          <textarea placeholder="工事場所・工事内容・ご希望時期など、詳しくお書きください。"></textarea>
+        </div>
+        <div class="submit-wrap">
+          <button type="submit" class="submit-btn">送信する</button>
+          <p class="privacy-note">送信内容は弊社プライバシーポリシーに基づき適切に管理いたします。</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo">有限会社エンビジョン<br><small style="color:rgba(255,255,255,.5);font-size:11px;">〒703-8284 岡山市中区平井6丁目5-9</small></div>
+      <div class="footer-nav">
+        <a href="index.html">トップ</a>
+        <a href="service.html">事業内容</a>
+        <a href="works.html">施工実績</a>
+        <a href="company.html">会社案内</a>
+        <a href="contact.html">お問い合わせ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2024 有限会社エンビジョン All Rights Reserved.</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>施工実績 | 有限会社エンビジョン</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--black:#0d0d0d;--orange:#e85c00;--gray:#888;--light:#f5f5f5;--white:#fff}
+body{font-family:'Noto Sans JP',sans-serif;color:var(--black);background:var(--white)}
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(13,13,13,0.96);border-bottom:1px solid rgba(232,92,0,.3)}
+.header-inner{max-width:1300px;margin:0 auto;padding:0 30px;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo img{height:40px;filter:brightness(0) invert(1)}
+nav ul{list-style:none;display:flex}
+nav ul li a{color:rgba(255,255,255,.8);text-decoration:none;font-size:13px;padding:25px 16px;display:block;transition:color .2s;border-bottom:2px solid transparent}
+nav ul li a:hover,nav ul li a.active{color:var(--orange);border-bottom-color:var(--orange)}
+.header-tel{color:#fff;font-size:14px;font-weight:700;text-decoration:none}
+.header-tel small{display:block;font-size:10px;color:var(--gray);margin-top:2px;text-align:center}
+.page-hero{padding:140px 0 80px;background:var(--black);text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:url('https://envision.okayama.jp/wp-content/themes/eTheme/img/works/kaitai01.jpg') center/cover;opacity:.2}
+.page-hero-inner{position:relative;z-index:1}
+.page-eyebrow{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.45em;color:var(--orange);text-transform:uppercase;margin-bottom:14px}
+.page-title{font-family:'Oswald',sans-serif;font-size:clamp(42px,6vw,70px);font-weight:700;color:#fff}
+.breadcrumb{margin-top:18px;font-size:12px;color:var(--gray)}
+.breadcrumb a{color:var(--gray);text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.works-section{padding:80px 0;background:var(--white)}
+.cat-header{display:flex;align-items:center;gap:20px;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid #e8e8e8}
+.cat-no{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.4em;color:var(--orange);text-transform:uppercase}
+.cat-title{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700}
+.cat-line{flex:1;height:1px;background:#e8e8e8}
+.works-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:72px}
+.work-card{position:relative;overflow:hidden;aspect-ratio:4/3}
+.work-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.work-card:hover img{transform:scale(1.07)}
+.work-card-ovl{position:absolute;inset:0;background:rgba(232,92,0,0);transition:background .3s;display:flex;align-items:flex-end;padding:20px}
+.work-card:hover .work-card-ovl{background:rgba(232,92,0,.75)}
+.work-card-lbl{color:#fff;font-size:13px;font-weight:700;opacity:0;transition:opacity .3s;margin-top:auto}
+.work-card:hover .work-card-lbl{opacity:1}
+.works-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:72px}
+.work-pair{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.work-pair .work-card{aspect-ratio:3/2}
+.cat-section{margin-bottom:70px}
+.cta-strip{background:var(--orange);padding:60px 0;text-align:center}
+.cta-strip h3{font-family:'Oswald',sans-serif;font-size:32px;color:#fff;margin-bottom:12px}
+.cta-strip p{color:rgba(255,255,255,.85);font-size:14px;margin-bottom:28px}
+.btn-white{background:#fff;color:var(--orange);padding:14px 40px;font-size:13px;font-weight:700;letter-spacing:.15em;text-decoration:none;display:inline-block}
+.btn-white:hover{background:var(--black);color:#fff}
+footer{background:#060606;padding:50px 0 26px;color:var(--gray)}
+.ft-inner{max-width:1200px;margin:0 auto;padding:0 40px}
+.ft-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px;margin-bottom:40px}
+.ft-logo img{height:30px;filter:brightness(0) invert(1);opacity:.5;margin-bottom:12px}
+.ft-logo p{font-size:12px;line-height:1.9}
+.ft-nav h6{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.25em;color:#fff;margin-bottom:16px;text-transform:uppercase}
+.ft-nav ul{list-style:none}
+.ft-nav ul li a{color:var(--gray);text-decoration:none;font-size:12px;line-height:2}
+.ft-nav ul li a:hover{color:var(--orange)}
+.ft-ct h6{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.25em;color:#fff;margin-bottom:16px;text-transform:uppercase}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;font-size:11px;color:rgba(255,255,255,.18)}
+.plan-back{position:fixed;bottom:28px;right:28px;background:var(--orange);color:#fff;padding:8px 18px;font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;z-index:999;text-decoration:none}
+@media(max-width:768px){.works-grid-3,.works-grid-2{grid-template-columns:1fr 1fr}.ft-grid{grid-template-columns:1fr}nav ul{display:none}}
+</style>
+</head>
+<body>
+<a href="../" class="plan-back">← 提案一覧</a>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/common/logo.png" alt="エンビジョン"></a>
+    <nav><ul>
+      <li><a href="index.html">TOP</a></li>
+      <li><a href="service.html">事業内容</a></li>
+      <li><a href="works.html" class="active">施工実績</a></li>
+      <li><a href="company.html">会社案内</a></li>
+      <li><a href="contact.html">お問い合わせ</a></li>
+    </ul></nav>
+    <a href="tel:0862018666" class="header-tel">086-201-8666<small>平日 9:00〜17:30</small></a>
+  </div>
+</header>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-eyebrow">Works</p>
+    <h1 class="page-title">施工実績</h1>
+    <p class="breadcrumb"><a href="index.html">TOP</a> &gt; 施工実績</p>
+  </div>
+</div>
+<section class="works-section">
+  <div class="wrap">
+    <div class="cat-section">
+      <div class="cat-header"><span class="cat-no">01</span><h2 class="cat-title">解体工事</h2><div class="cat-line"></div></div>
+      <div class="works-grid-3">
+        <div class="work-card"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/kaitai01.jpg" alt="解体工事01"><div class="work-card-ovl"><span class="work-card-lbl">解体工事 施工事例</span></div></div>
+        <div class="work-card"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/kaitai02.jpg" alt="解体工事02"><div class="work-card-ovl"><span class="work-card-lbl">解体工事 施工事例</span></div></div>
+        <div class="work-card"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/kaitai03.jpg" alt="解体工事03"><div class="work-card-ovl"><span class="work-card-lbl">解体工事 施工事例</span></div></div>
+      </div>
+    </div>
+    <div class="cat-section">
+      <div class="cat-header"><span class="cat-no">02</span><h2 class="cat-title">土木工事</h2><div class="cat-line"></div></div>
+      <div class="works-grid-3">
+        <div class="work-card"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/doboku01.jpg" alt="土木01"><div class="work-card-ovl"><span class="work-card-lbl">土木工事 施工事例</span></div></div>
+        <div class="work-card"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/doboku02.jpg" alt="土木02"><div class="work-card-ovl"><span class="work-card-lbl">土木工事 施工事例</span></div></div>
+        <div class="work-card"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/doboku03.jpg" alt="土木03"><div class="work-card-ovl"><span class="work-card-lbl">土木工事 施工事例</span></div></div>
+      </div>
+    </div>
+    <div class="cat-section">
+      <div class="cat-header"><span class="cat-no">03</span><h2 class="cat-title">とび・土工工事</h2><div class="cat-line"></div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:72px">
+        <div class="work-card"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/tobi01_1.jpg" alt="とび01_1"><div class="work-card-ovl"><span class="work-card-lbl">とび・土工 施工事例</span></div></div>
+        <div class="work-card"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/tobi01_2.jpg" alt="とび01_2"><div class="work-card-ovl"><span class="work-card-lbl">とび・土工 施工事例</span></div></div>
+        <div class="work-card"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/tobi02_1.jpg" alt="とび02_1"><div class="work-card-ovl"><span class="work-card-lbl">とび・土工 施工事例</span></div></div>
+        <div class="work-card"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/tobi02_2.jpg" alt="とび02_2"><div class="work-card-ovl"><span class="work-card-lbl">とび・土工 施工事例</span></div></div>
+        <div class="work-card"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/tobi03_1.jpg" alt="とび03_1"><div class="work-card-ovl"><span class="work-card-lbl">とび・土工 施工事例</span></div></div>
+        <div class="work-card"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/tobi03_2.jpg" alt="とび03_2"><div class="work-card-ovl"><span class="work-card-lbl">とび・土工 施工事例</span></div></div>
+      </div>
+    </div>
+    <div class="cat-section">
+      <div class="cat-header"><span class="cat-no">04</span><h2 class="cat-title">電気工事</h2><div class="cat-line"></div></div>
+      <div class="works-grid-3" style="margin-bottom:0">
+        <div class="work-card"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/denki01.jpg" alt="電気01"><div class="work-card-ovl"><span class="work-card-lbl">電気工事 施工事例</span></div></div>
+        <div class="work-card"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/denki02.jpg" alt="電気02"><div class="work-card-ovl"><span class="work-card-lbl">電気工事 施工事例</span></div></div>
+        <div class="work-card"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/denki03.jpg" alt="電気03"><div class="work-card-ovl"><span class="work-card-lbl">電気工事 施工事例</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="cta-strip">
+  <h3>施工のご依頼・お見積りはこちら</h3>
+  <p>お気軽にお問い合わせください。現地調査・お見積りは無料です。</p>
+  <a href="contact.html" class="btn-white">お問い合わせはこちら</a>
+</div>
+<footer>
+  <div class="ft-inner">
+    <div class="ft-grid">
+      <div class="ft-logo"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/common/logo.png" alt="エンビジョン"><p>岡山市東区を拠点に地域の建設を支えます。</p></div>
+      <div class="ft-nav"><h6>Navigation</h6><ul><li><a href="index.html">TOP</a></li><li><a href="service.html">事業内容</a></li><li><a href="works.html">施工実績</a></li><li><a href="company.html">会社案内</a></li><li><a href="contact.html">お問い合わせ</a></li></ul></div>
+      <div class="ft-ct"><h6>Contact</h6><p style="font-size:22px;font-weight:700;color:#fff">086-201-8666</p><p style="font-size:12px;margin-top:6px">平日 9:00〜17:30</p><p style="font-size:12px;margin-top:12px;line-height:1.8">〒709-0632<br>岡山県岡山市東区南古都134-103</p></div>
+    </div>
+    <div class="ft-bottom">© 2024 有限会社エンビジョン All Rights Reserved.</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>会社案内 | 有限会社エンビジョン</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--black:#0d0d0d;--orange:#e85c00;--gray:#888;--light:#f5f5f5;--white:#fff}
+body{font-family:'Noto Sans JP',sans-serif;color:var(--black);background:var(--white)}
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(13,13,13,0.96);border-bottom:1px solid rgba(232,92,0,.3)}
+.header-inner{max-width:1300px;margin:0 auto;padding:0 30px;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo img{height:40px;filter:brightness(0) invert(1)}
+nav ul{list-style:none;display:flex}
+nav ul li a{color:rgba(255,255,255,.8);text-decoration:none;font-size:13px;padding:25px 16px;display:block;transition:color .2s;border-bottom:2px solid transparent}
+nav ul li a:hover,nav ul li a.active{color:var(--orange);border-bottom-color:var(--orange)}
+.header-tel{color:#fff;font-size:14px;font-weight:700;text-decoration:none}
+.header-tel small{display:block;font-size:10px;color:var(--gray);margin-top:2px;text-align:center}
+.page-hero{padding:140px 0 80px;background:var(--black);text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:url('https://envision.okayama.jp/wp-content/themes/eTheme/img/company/bg_message.jpg') center/cover;opacity:.25}
+.page-hero-inner{position:relative;z-index:1}
+.page-eyebrow{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.45em;color:var(--orange);text-transform:uppercase;margin-bottom:14px}
+.page-title{font-family:'Oswald',sans-serif;font-size:clamp(42px,6vw,70px);font-weight:700;color:#fff}
+.breadcrumb{margin-top:18px;font-size:12px;color:var(--gray)}
+.breadcrumb a{color:var(--gray);text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+/* MESSAGE */
+.sec-message{padding:100px 0;background:var(--black)}
+.msg-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.msg-img img{width:100%;height:500px;object-fit:cover}
+.msg-eyebrow{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.4em;color:var(--orange);text-transform:uppercase;margin-bottom:14px}
+.msg-h2{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700;color:#fff;margin-bottom:28px;line-height:1.3}
+.msg-text{font-size:14px;line-height:2.3;color:rgba(255,255,255,.75);margin-bottom:24px}
+.msg-sign{font-size:14px;color:rgba(255,255,255,.5);border-top:1px solid rgba(255,255,255,.1);padding-top:20px;margin-top:20px}
+.msg-sign strong{display:block;font-size:16px;color:#fff;margin-top:6px}
+/* PHILOSOPHY */
+.sec-philosophy{padding:100px 0;background:var(--light)}
+.ph-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:56px}
+.ph-card{background:var(--black);padding:48px 28px;text-align:center;position:relative;overflow:hidden}
+.ph-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--orange)}
+.ph-icon{font-size:36px;margin-bottom:20px}
+.ph-word{font-family:'Oswald',sans-serif;font-size:32px;font-weight:700;color:var(--orange);margin-bottom:12px}
+.ph-desc{font-size:12px;color:var(--gray);line-height:1.9}
+/* OVERVIEW TABLE */
+.sec-overview{padding:100px 0;background:var(--white)}
+.overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:56px;align-items:start}
+.overview-img img{width:100%;height:400px;object-fit:cover}
+.ov-table{width:100%;border-collapse:collapse}
+.ov-table tr{border-bottom:1px solid #e8e8e8}
+.ov-table tr:first-child{border-top:1px solid #e8e8e8}
+.ov-table td{padding:16px 12px;font-size:13px;vertical-align:top}
+.ov-table td:first-child{color:var(--gray);font-weight:500;width:38%;white-space:nowrap;background:var(--light)}
+.ov-table td:last-child{color:var(--black);line-height:1.7}
+/* PARTNERS */
+.sec-partners{padding:80px 0;background:var(--black);text-align:center}
+.sec-partners h3{font-family:'Oswald',sans-serif;font-size:32px;color:#fff;margin-bottom:16px}
+.sec-partners p{color:var(--gray);font-size:14px;margin-bottom:40px}
+.partner-badge{display:inline-block;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);padding:12px 24px;font-size:13px;margin:6px}
+.cta-strip{background:var(--orange);padding:60px 0;text-align:center}
+.cta-strip h3{font-family:'Oswald',sans-serif;font-size:32px;color:#fff;margin-bottom:12px}
+.cta-strip p{color:rgba(255,255,255,.85);font-size:14px;margin-bottom:28px}
+.btn-white{background:#fff;color:var(--orange);padding:14px 40px;font-size:13px;font-weight:700;letter-spacing:.15em;text-decoration:none;display:inline-block}
+.btn-white:hover{background:var(--black);color:#fff}
+footer{background:#060606;padding:50px 0 26px;color:var(--gray)}
+.ft-inner{max-width:1200px;margin:0 auto;padding:0 40px}
+.ft-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px;margin-bottom:40px}
+.ft-logo img{height:30px;filter:brightness(0) invert(1);opacity:.5;margin-bottom:12px}
+.ft-logo p{font-size:12px;line-height:1.9}
+.ft-nav h6{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.25em;color:#fff;margin-bottom:16px;text-transform:uppercase}
+.ft-nav ul{list-style:none}
+.ft-nav ul li a{color:var(--gray);text-decoration:none;font-size:12px;line-height:2}
+.ft-nav ul li a:hover{color:var(--orange)}
+.ft-ct h6{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.25em;color:#fff;margin-bottom:16px;text-transform:uppercase}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;font-size:11px;color:rgba(255,255,255,.18)}
+.plan-back{position:fixed;bottom:28px;right:28px;background:var(--orange);color:#fff;padding:8px 18px;font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;z-index:999;text-decoration:none}
+@media(max-width:900px){.msg-grid,.overview-grid,.ph-grid,.ft-grid{grid-template-columns:1fr}nav ul{display:none}}
+</style>
+</head>
+<body>
+<a href="../" class="plan-back">← 提案一覧</a>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/common/logo.png" alt="エンビジョン"></a>
+    <nav><ul>
+      <li><a href="index.html">TOP</a></li>
+      <li><a href="service.html">事業内容</a></li>
+      <li><a href="works.html">施工実績</a></li>
+      <li><a href="company.html" class="active">会社案内</a></li>
+      <li><a href="contact.html">お問い合わせ</a></li>
+    </ul></nav>
+    <a href="tel:0862018666" class="header-tel">086-201-8666<small>平日 9:00〜17:30</small></a>
+  </div>
+</header>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-eyebrow">Company</p>
+    <h1 class="page-title">会社案内</h1>
+    <p class="breadcrumb"><a href="index.html">TOP</a> &gt; 会社案内</p>
+  </div>
+</div>
+<section class="sec-message">
+  <div class="wrap">
+    <div class="msg-grid">
+      <div class="msg-img"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/company/bg_message.jpg" alt="代表メッセージ"></div>
+      <div>
+        <p class="msg-eyebrow">Message</p>
+        <h2 class="msg-h2">情熱と経験、<br>そして感謝の気持ちを<br>忘れずに。</h2>
+        <p class="msg-text">有限会社エンビジョンは、平成17年の設立以来「誠実な経営、誠実な施工」を旨として岡山市東区を中心に地域の建設工事に携わってまいりました。</p>
+        <p class="msg-text">土木・とび土工・電気・解体の4事業を軸に、規模の大小にかかわらずキメ細やかな対応で地域の皆様のご要望にお応えしてきた結果、多くの方々からご信頼をいただくことができました。</p>
+        <p class="msg-text">今後も「安全・信頼・創造・進歩」の経営理念のもと、地域社会と共に歩み続ける企業を目指してまいります。</p>
+        <div class="msg-sign">代表取締役<strong>岩藤 祐子</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec-philosophy">
+  <div class="wrap">
+    <p style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.45em;color:var(--orange);text-transform:uppercase;margin-bottom:12px">Philosophy</p>
+    <h2 style="font-family:'Oswald',sans-serif;font-size:42px;font-weight:700;margin-bottom:0">経営理念</h2>
+    <div class="ph-grid">
+      <div class="ph-card"><div class="ph-icon">🛡️</div><div class="ph-word">安全</div><p class="ph-desc">現場の安全を最優先に、作業員と地域住民の安全を守ります。</p></div>
+      <div class="ph-card"><div class="ph-icon">🤝</div><div class="ph-word">信頼</div><p class="ph-desc">誠実な施工と対応で、お客様・地域との信頼関係を構築します。</p></div>
+      <div class="ph-card"><div class="ph-icon">💡</div><div class="ph-word">創造</div><p class="ph-desc">創意工夫を重ね、新しい課題にも柔軟に対応します。</p></div>
+      <div class="ph-card"><div class="ph-icon">📈</div><div class="ph-word">進歩</div><p class="ph-desc">絶えず技術革新に挑み、より高い品質を追求します。</p></div>
+    </div>
+  </div>
+</section>
+<section class="sec-overview">
+  <div class="wrap">
+    <p style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.45em;color:var(--orange);text-transform:uppercase;margin-bottom:12px">Overview</p>
+    <h2 style="font-family:'Oswald',sans-serif;font-size:42px;font-weight:700;margin-bottom:0">会社概要</h2>
+    <div class="overview-grid">
+      <div class="overview-img"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/common/img_company.jpg" alt="会社外観"></div>
+      <div>
+        <table class="ov-table">
+          <tr><td>商号</td><td>有限会社エンビジョン</td></tr>
+          <tr><td>代表者</td><td>岩藤 祐子</td></tr>
+          <tr><td>設立</td><td>平成17年3月15日（2005年）</td></tr>
+          <tr><td>資本金</td><td>1,000万円</td></tr>
+          <tr><td>従業員数</td><td>6名</td></tr>
+          <tr><td>所在地</td><td>〒709-0632<br>岡山県岡山市東区南古都134-103</td></tr>
+          <tr><td>電話</td><td>086-201-8666</td></tr>
+          <tr><td>FAX</td><td>086-206-4531</td></tr>
+          <tr><td>業務内容</td><td>土木工事業<br>とび・土工工事業<br>電気工事業<br>解体工事業</td></tr>
+          <tr><td>建設業許可</td><td>岡山県知事許可（般-6）第25911号</td></tr>
+          <tr><td>加入団体</td><td>岡山県電気工事工業組合</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="sec-partners">
+  <h3>主要な認定・許可</h3>
+  <p>各種建設業許可を取得し、適切な工事を行います。</p>
+  <div>
+    <span class="partner-badge">建設業許可 岡山県知事許可</span>
+    <span class="partner-badge">とび土工工事業</span>
+    <span class="partner-badge">電気工事業</span>
+    <span class="partner-badge">解体工事業</span>
+    <span class="partner-badge">土木工事業</span>
+    <span class="partner-badge">岡山県電気工事工業組合 加入</span>
+  </div>
+</div>
+<div class="cta-strip">
+  <h3>お気軽にご相談ください</h3>
+  <p>工事のご依頼・お見積りはいつでも承ります。</p>
+  <a href="contact.html" class="btn-white">お問い合わせはこちら</a>
+</div>
+<footer>
+  <div class="ft-inner">
+    <div class="ft-grid">
+      <div class="ft-logo"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/common/logo.png" alt="エンビジョン"><p>岡山市東区を拠点に地域の建設を支えます。</p></div>
+      <div class="ft-nav"><h6>Navigation</h6><ul><li><a href="index.html">TOP</a></li><li><a href="service.html">事業内容</a></li><li><a href="works.html">施工実績</a></li><li><a href="company.html">会社案内</a></li><li><a href="contact.html">お問い合わせ</a></li></ul></div>
+      <div class="ft-ct"><h6>Contact</h6><p style="font-size:22px;font-weight:700;color:#fff">086-201-8666</p><p style="font-size:12px;margin-top:6px">平日 9:00〜17:30</p><p style="font-size:12px;margin-top:12px;line-height:1.8">〒709-0632<br>岡山県岡山市東区南古都134-103</p></div>
+    </div>
+    <div class="ft-bottom">© 2024 有限会社エンビジョン All Rights Reserved.</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>事業内容 | 有限会社エンビジョン</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--black:#0d0d0d;--orange:#e85c00;--orange2:#ff7a1a;--gray:#888;--light:#f5f5f5;--white:#fff}
+body{font-family:'Noto Sans JP',sans-serif;color:var(--black);background:var(--white)}
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(13,13,13,0.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(232,92,0,0.3)}
+.header-inner{max-width:1300px;margin:0 auto;padding:0 30px;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo img{height:40px;filter:brightness(0) invert(1)}
+nav ul{list-style:none;display:flex}
+nav ul li a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:25px 16px;display:block;transition:color .2s;border-bottom:2px solid transparent}
+nav ul li a:hover,nav ul li a.active{color:var(--orange);border-bottom-color:var(--orange)}
+.header-tel{color:#fff;font-size:14px;font-weight:700;text-decoration:none}
+.header-tel small{display:block;font-size:10px;color:var(--gray);margin-top:2px;text-align:center}
+.page-hero{padding:140px 0 80px;background:var(--black);text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:url('https://envision.okayama.jp/wp-content/themes/eTheme/img/service/img1.jpg') center/cover;opacity:.2}
+.page-hero-inner{position:relative;z-index:1}
+.page-eyebrow{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.45em;color:var(--orange);text-transform:uppercase;margin-bottom:14px}
+.page-title{font-family:'Oswald',sans-serif;font-size:clamp(42px,6vw,70px);font-weight:700;color:#fff;line-height:1.05}
+.breadcrumb{margin-top:20px;font-size:12px;color:var(--gray)}
+.breadcrumb a{color:var(--gray);text-decoration:none}
+.breadcrumb a:hover{color:var(--orange)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.sec-service-detail{padding:100px 0}
+.svc-detail-item{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px;padding-bottom:80px;border-bottom:1px solid #e8e8e8}
+.svc-detail-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.svc-detail-item.reverse{direction:rtl}
+.svc-detail-item.reverse>*{direction:ltr}
+.svc-detail-img{position:relative}
+.svc-detail-img img{width:100%;height:380px;object-fit:cover}
+.svc-detail-img::after{content:'';position:absolute;bottom:-12px;right:-12px;width:60%;height:60%;border:2px solid var(--orange);z-index:-1}
+.svc-no{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:.4em;color:var(--orange);text-transform:uppercase;margin-bottom:10px}
+.svc-h2{font-family:'Oswald',sans-serif;font-size:40px;font-weight:700;margin-bottom:16px}
+.svc-desc{font-size:14px;line-height:2.1;color:#555;margin-bottom:24px}
+.svc-points{display:flex;flex-direction:column;gap:10px}
+.svc-point{display:flex;align-items:center;gap:12px;font-size:13px;color:#333;padding:10px 14px;background:var(--light)}
+.svc-point::before{content:'▶';color:var(--orange);font-size:10px;flex-shrink:0}
+.service-intro{padding:80px 0;background:var(--black);text-align:center}
+.service-intro h2{font-family:'Oswald',sans-serif;font-size:42px;font-weight:700;color:#fff;margin-bottom:16px}
+.service-intro p{color:var(--gray);font-size:14px;line-height:2;max-width:700px;margin:0 auto 36px}
+.support-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:0}
+.support-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:40px 30px;transition:border-color .3s}
+.support-card:hover{border-color:var(--orange)}
+.sup-no{font-family:'Oswald',sans-serif;font-size:44px;font-weight:700;color:rgba(232,92,0,.18);margin-bottom:14px}
+.sup-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:12px}
+.sup-desc{font-size:13px;color:var(--gray);line-height:1.9}
+.cta-strip{background:var(--orange);padding:60px 0;text-align:center}
+.cta-strip h3{font-family:'Oswald',sans-serif;font-size:32px;font-weight:700;color:#fff;margin-bottom:12px}
+.cta-strip p{color:rgba(255,255,255,.85);font-size:14px;margin-bottom:28px}
+.btn-white{background:#fff;color:var(--orange);padding:14px 40px;font-size:13px;font-weight:700;letter-spacing:.15em;text-decoration:none;display:inline-block;transition:.2s}
+.btn-white:hover{background:var(--black);color:#fff}
+footer{background:#060606;padding:50px 0 26px;color:var(--gray)}
+.ft-inner{max-width:1200px;margin:0 auto;padding:0 40px}
+.ft-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px;margin-bottom:40px}
+.ft-logo img{height:30px;filter:brightness(0) invert(1);opacity:.5;margin-bottom:12px}
+.ft-logo p{font-size:12px;line-height:1.9;color:var(--gray)}
+.ft-nav h6{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.25em;color:#fff;margin-bottom:16px;text-transform:uppercase}
+.ft-nav ul{list-style:none}
+.ft-nav ul li a{color:var(--gray);text-decoration:none;font-size:12px;line-height:2}
+.ft-nav ul li a:hover{color:var(--orange)}
+.ft-ct h6{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.25em;color:#fff;margin-bottom:16px;text-transform:uppercase}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;font-size:11px;color:rgba(255,255,255,.18)}
+.plan-back{position:fixed;bottom:28px;right:28px;background:var(--orange);color:#fff;padding:8px 18px;font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;z-index:999;text-decoration:none}
+@media(max-width:900px){.svc-detail-item,.ft-grid{grid-template-columns:1fr}.svc-detail-item.reverse{direction:ltr}.support-grid{grid-template-columns:1fr}nav ul{display:none}}
+</style>
+</head>
+<body>
+<a href="../" class="plan-back">← 提案一覧</a>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/common/logo.png" alt="エンビジョン"></a>
+    <nav><ul>
+      <li><a href="index.html">TOP</a></li>
+      <li><a href="service.html" class="active">事業内容</a></li>
+      <li><a href="works.html">施工実績</a></li>
+      <li><a href="company.html">会社案内</a></li>
+      <li><a href="contact.html">お問い合わせ</a></li>
+    </ul></nav>
+    <a href="tel:0862018666" class="header-tel">086-201-8666<small>平日 9:00〜17:30</small></a>
+  </div>
+</header>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-eyebrow">Our Service</p>
+    <h1 class="page-title">事業内容</h1>
+    <p class="breadcrumb"><a href="index.html">TOP</a> &gt; 事業内容</p>
+  </div>
+</div>
+<section class="sec-service-detail">
+  <div class="wrap">
+    <div class="svc-detail-item" id="doboku">
+      <div class="svc-detail-img"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/index/service_upper1.jpg" alt="土木工事"></div>
+      <div>
+        <p class="svc-no">01 — Service</p>
+        <h2 class="svc-h2">土木工事</h2>
+        <p class="svc-desc">農業用地の生産性を高める土地改良や、古くなった用水路を交換する水路布設など、さまざまな土木工事を総合的に請け負っています。地域にお住まいのみなさまの暮らしをより快適にするための工事です。長年培ってきた経験と技術力で、安全かつ正確な施工をお約束します。</p>
+        <div class="svc-points">
+          <div class="svc-point">農業用地の土地改良工事</div>
+          <div class="svc-point">用水路・水路布設工事</div>
+          <div class="svc-point">地域インフラ整備工事</div>
+          <div class="svc-point">道路・造成工事全般</div>
+        </div>
+      </div>
+    </div>
+    <div class="svc-detail-item reverse" id="tobi">
+      <div class="svc-detail-img"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/index/service_upper2.jpg" alt="とび・土工"></div>
+      <div>
+        <p class="svc-no">02 — Service</p>
+        <h2 class="svc-h2">とび・土工</h2>
+        <p class="svc-desc">建設現場ではコンクリートを扱う工事が不可欠となります。造作物の基礎工事や外構、擁壁工事など多様な工種に対応します。高い完成度が要求される細部の技術を磨き、お客様のご要望に確実にお応えします。</p>
+        <div class="svc-points">
+          <div class="svc-point">コンクリート工事全般</div>
+          <div class="svc-point">造作物の基礎工事</div>
+          <div class="svc-point">外構・擁壁工事</div>
+          <div class="svc-point">仮設工事・足場組立</div>
+        </div>
+      </div>
+    </div>
+    <div class="svc-detail-item" id="denki">
+      <div class="svc-detail-img"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/index/service_upper3.jpg" alt="電気工事"></div>
+      <div>
+        <p class="svc-no">03 — Service</p>
+        <h2 class="svc-h2">電気工事</h2>
+        <p class="svc-desc">現代において電気はライフラインを動かす重要なエネルギーです。電気工事はそんな電気を届けるために、道をつくる仕事です。一般住宅からビル、病院や工場など幅広い現場に対応しており、岡山県電気工事工業組合にも加入しています。</p>
+        <div class="svc-points">
+          <div class="svc-point">住宅・集合住宅の電気工事</div>
+          <div class="svc-point">ビル・商業施設の電気設備</div>
+          <div class="svc-point">病院・工場の電気工事</div>
+          <div class="svc-point">電気設備のメンテナンス</div>
+        </div>
+      </div>
+    </div>
+    <div class="svc-detail-item reverse" id="kaitai">
+      <div class="svc-detail-img"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/index/service_upper4.jpg" alt="解体工事"></div>
+      <div>
+        <p class="svc-no">04 — Service</p>
+        <h2 class="svc-h2">解体工事</h2>
+        <p class="svc-desc">解体工事は木造・鉄骨造かの物件や周囲の状況によって工法を変えながら作業をしていくため、建築物についての幅広い知識が必要とされます。安全第一を徹底しながら、近隣への影響を最小限に抑えた施工を行います。</p>
+        <div class="svc-points">
+          <div class="svc-point">木造建物の解体工事</div>
+          <div class="svc-point">鉄骨造建物の解体工事</div>
+          <div class="svc-point">内装解体・スケルトン工事</div>
+          <div class="svc-point">廃材処理・産業廃棄物処理</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="service-intro">
+  <div class="wrap">
+    <h2>総合的なサービス体制</h2>
+    <p>施工だけでなく、計画段階から完工後まで一貫したサポートを提供します。</p>
+    <div class="support-grid">
+      <div class="support-card"><div class="sup-no">01</div><h4 class="sup-title">プロジェクト管理・進行</h4><p class="sup-desc">施工計画の立案から工程管理まで、スケジュールを厳守した進行管理で工期遅延を防ぎます。</p></div>
+      <div class="support-card"><div class="sup-no">02</div><h4 class="sup-title">品質確保・検査</h4><p class="sup-desc">材料の品質確認から施工方法の検証まで徹底し、高品質な仕上がりをお約束します。</p></div>
+      <div class="support-card"><div class="sup-no">03</div><h4 class="sup-title">総合マネジメント</h4><p class="sup-desc">安全・環境保全・地域への配慮を一体的に管理し、責任ある施工を実現します。</p></div>
+    </div>
+  </div>
+</div>
+<div class="cta-strip">
+  <h3>まずはお気軽にご相談ください</h3>
+  <p>工事内容・お見積りについてのご質問・ご相談はいつでも承ります。</p>
+  <a href="contact.html" class="btn-white">お問い合わせはこちら</a>
+</div>
+<footer>
+  <div class="ft-inner">
+    <div class="ft-grid">
+      <div class="ft-logo"><img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/common/logo.png" alt="エンビジョン"><p>岡山市東区を拠点に、土木・とび土工・電気・解体の4事業で地域を支えます。</p></div>
+      <div class="ft-nav"><h6>Navigation</h6><ul><li><a href="index.html">TOP</a></li><li><a href="service.html">事業内容</a></li><li><a href="works.html">施工実績</a></li><li><a href="company.html">会社案内</a></li><li><a href="contact.html">お問い合わせ</a></li></ul></div>
+      <div class="ft-ct"><h6>Contact</h6><p style="font-size:22px;font-weight:700;color:#fff">086-201-8666</p><p style="font-size:12px;margin-top:6px">平日 9:00〜17:30</p><p style="font-size:12px;margin-top:12px;line-height:1.8">〒709-0632<br>岡山県岡山市東区南古都134-103</p></div>
+    </div>
+    <div class="ft-bottom">© 2024 有限会社エンビジョン All Rights Reserved.</div>
+  </div>
+</footer>
+</body>
+</html>

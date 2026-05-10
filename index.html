@@ -3,178 +3,265 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>エンビジョン HPリニューアル提案 — デザイン選択</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
+<title>エンビジョン HP リニューアル提案 | 3プラン比較</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Noto Sans JP',sans-serif;background:#0d0d0d;color:#fff;min-height:100vh}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans JP',sans-serif;background:#0f0f0f;color:#fff;min-height:100vh;}
 
-.top{text-align:center;padding:80px 40px 48px}
-.top-label{font-size:11px;letter-spacing:6px;color:#888;font-weight:700;text-transform:uppercase;margin-bottom:16px}
-.top-h1{font-family:'Oswald',sans-serif;font-size:clamp(36px,5vw,62px);letter-spacing:-1px;line-height:1}
-.top-h1 em{color:#e85c00;font-style:normal}
-.top-sub{font-size:14px;color:#777;margin-top:16px;line-height:1.8;letter-spacing:0.5px}
-.divider{width:60px;height:2px;background:#e85c00;margin:32px auto}
+header{background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.1);padding:20px 48px;display:flex;align-items:center;justify-content:space-between;}
+header h1{font-family:'Noto Serif JP',serif;font-size:18px;color:#fff;}
+header p{color:rgba(255,255,255,.5);font-size:12px;margin-top:4px;}
+.header-badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:8px 16px;border-radius:20px;font-size:12px;color:rgba(255,255,255,.7);}
+
+.hero{text-align:center;padding:80px 40px 56px;}
+.hero-label{font-size:11px;letter-spacing:.25em;color:rgba(255,255,255,.4);margin-bottom:16px;}
+.hero h2{font-family:'Noto Serif JP',serif;font-size:40px;line-height:1.4;margin-bottom:20px;}
+.hero h2 span{color:#e85c00;}
+.hero p{color:rgba(255,255,255,.6);font-size:15px;line-height:1.8;max-width:640px;margin:0 auto;}
 
 /* PLAN CARDS */
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;max-width:1600px;margin:0 auto;padding:0 24px 80px}
+.plans-section{max-width:1320px;margin:0 auto;padding:0 40px 80px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
 
-.plan-card{position:relative;overflow:hidden;cursor:pointer;text-decoration:none;display:block;background:#111}
-.plan-card:hover .plan-img{transform:scale(1.05)}
-.plan-card:hover .plan-overlay{opacity:1}
-.plan-card:hover .plan-cta{transform:translateY(0);opacity:1}
+.plan-card{background:#1a1a1a;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.08);transition:transform .3s,box-shadow .3s;}
+.plan-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.5);}
 
-/* HERO IMAGE per plan */
-.plan-img-wrap{height:420px;overflow:hidden;position:relative}
-.plan-img{width:100%;height:100%;object-fit:cover;transition:transform 0.7s;display:block}
-.plan-img-overlay{position:absolute;inset:0}
+.plan-header{padding:32px 28px 24px;position:relative;}
+.plan-header::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
+.plan-a .plan-header::before{background:#e85c00;}
+.plan-b .plan-header::before{background:#b89a4e;}
+.plan-c .plan-header::before{background:#1a4a2e;}
+.plan-label{font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.4);margin-bottom:8px;}
+.plan-title{font-family:'Noto Serif JP',serif;font-size:22px;color:#fff;margin-bottom:12px;}
+.plan-desc{color:rgba(255,255,255,.55);font-size:13px;line-height:1.7;}
 
-/* Plan A image: kaitai01 */
-.pa .plan-img-overlay{background:linear-gradient(to bottom,rgba(10,10,10,0.15) 0%,rgba(10,10,10,0.75) 100%)}
-/* Plan B */
-.pb .plan-img-overlay{background:linear-gradient(to bottom,rgba(11,31,58,0.2) 0%,rgba(11,31,58,0.8) 100%)}
-/* Plan C */
-.pc .plan-img-overlay{background:linear-gradient(to bottom,rgba(61,43,31,0.15) 0%,rgba(61,43,31,0.8) 100%)}
+/* COLOR SWATCHES */
+.plan-colors{padding:0 28px 20px;display:flex;gap:8px;}
+.swatch{height:8px;border-radius:4px;flex:1;}
 
-.plan-badge{position:absolute;top:20px;left:20px;padding:6px 16px;font-size:11px;font-weight:700;letter-spacing:3px;z-index:3}
-.pa .plan-badge{background:#e85c00;color:#fff}
-.pb .plan-badge{background:#0b1f3a;color:#b89a4e;border:1px solid #b89a4e}
-.pc .plan-badge{background:#c0623a;color:#fff}
+/* PREVIEW IMAGE */
+.plan-preview{position:relative;height:260px;overflow:hidden;background:#111;}
+.plan-preview img{width:100%;height:100%;object-fit:cover;object-position:top;opacity:.9;transition:transform .4s;}
+.plan-card:hover .plan-preview img{transform:scale(1.04);}
+.preview-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(0,0,0,.7));pointer-events:none;}
 
-.plan-tag-img{position:absolute;bottom:16px;left:16px;right:16px;z-index:3;display:flex;gap:6px}
-.plan-tag-img img{width:calc(33.33% - 4px);height:60px;object-fit:cover;opacity:0.75}
+/* FEATURES */
+.plan-features{padding:20px 28px 0;}
+.feature-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.feature-row:last-child{border:none;}
+.feat-icon{font-size:14px;}
+.feat-text{color:rgba(255,255,255,.7);font-size:13px;}
 
-.plan-body{padding:28px 28px 36px}
-.plan-name{font-family:'Oswald',sans-serif;font-size:28px;letter-spacing:-0.5px}
-.pa .plan-name{color:#e85c00}
-.pb .plan-name{color:#b89a4e}
-.pc .plan-name{color:#c0623a}
-.plan-concept{font-size:13px;color:#aaa;margin-top:6px;letter-spacing:1px}
-.plan-desc{font-size:13px;color:#888;line-height:1.9;margin-top:16px}
-.plan-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.plan-tag{font-size:11px;padding:4px 12px;border-radius:20px;font-weight:700;letter-spacing:1px}
-.pa .plan-tag{background:rgba(232,92,0,0.15);color:#e85c00;border:1px solid rgba(232,92,0,0.3)}
-.pb .plan-tag{background:rgba(184,154,78,0.12);color:#b89a4e;border:1px solid rgba(184,154,78,0.3)}
-.pc .plan-tag{background:rgba(192,98,58,0.15);color:#c0623a;border:1px solid rgba(192,98,58,0.3)}
-.plan-cta{display:block;margin-top:28px;padding:16px;text-align:center;font-weight:700;font-size:14px;letter-spacing:2px;text-decoration:none;transform:translateY(8px);opacity:0;transition:all 0.3s}
-.pa .plan-cta{background:#e85c00;color:#fff}
-.pb .plan-cta{background:#0b1f3a;color:#b89a4e;border:1px solid #b89a4e}
-.pc .plan-cta{background:#c0623a;color:#fff}
+/* PAGES LINKS */
+.plan-pages{padding:16px 28px;background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.06);}
+.pages-label{font-size:11px;color:rgba(255,255,255,.35);letter-spacing:.1em;margin-bottom:10px;}
+.page-links{display:flex;flex-wrap:wrap;gap:6px;}
+.page-link{font-size:11px;color:rgba(255,255,255,.6);background:rgba(255,255,255,.07);padding:4px 10px;border-radius:12px;transition:all .2s;}
+.page-link:hover{background:rgba(255,255,255,.15);color:#fff;}
+a{text-decoration:none;}
 
-/* Always show CTA on mobile */
-@media(max-width:900px){
-  .plans{grid-template-columns:1fr}
-  .plan-cta{transform:translateY(0);opacity:1}
-}
+/* CTA BUTTON */
+.plan-cta{padding:20px 28px 28px;}
+.cta-link{display:block;text-align:center;padding:14px;border-radius:4px;font-size:14px;font-weight:700;letter-spacing:.06em;transition:opacity .2s;}
+.cta-link:hover{opacity:.85;}
+.plan-a .cta-link{background:#e85c00;color:#fff;}
+.plan-b .cta-link{background:#b89a4e;color:#fff;}
+.plan-c .cta-link{background:#1a4a2e;color:#fff;}
 
-/* PREVIEW SECTION */
-.preview-hint{text-align:center;padding:0 24px 80px;max-width:800px;margin:0 auto}
-.preview-hint p{font-size:13px;color:#555;line-height:1.9}
+/* COMPARISON */
+.comparison{max-width:900px;margin:0 auto 80px;padding:0 40px;}
+.comparison h2{font-family:'Noto Serif JP',serif;font-size:22px;text-align:center;color:#fff;margin-bottom:32px;}
+.comparison-table{width:100%;border-collapse:collapse;background:#1a1a1a;border-radius:8px;overflow:hidden;}
+.comparison-table th{background:#252525;padding:14px 20px;font-size:12px;letter-spacing:.1em;color:rgba(255,255,255,.5);font-weight:400;text-align:center;}
+.comparison-table th:first-child{text-align:left;}
+.comparison-table td{padding:14px 20px;font-size:13px;color:rgba(255,255,255,.75);border-top:1px solid rgba(255,255,255,.06);text-align:center;}
+.comparison-table td:first-child{text-align:left;color:rgba(255,255,255,.5);}
+.ta{color:#e85c00!important;}
+.tb{color:#b89a4e!important;}
+.tc{color:#4a9a6e!important;}
 
-.note{background:#1a1a1a;border:1px solid #333;border-left:3px solid #e85c00;padding:24px 32px;margin:40px 40px 0;font-size:13px;color:#999;line-height:1.9}
-.note strong{color:#fff}
-
-footer{text-align:center;padding:48px;font-size:12px;color:#333;letter-spacing:1px;border-top:1px solid #1a1a1a}
+footer{text-align:center;padding:32px;border-top:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.3);font-size:12px;}
 </style>
 </head>
 <body>
+<header>
+  <div>
+    <h1>有限会社エンビジョン — HPリニューアル提案</h1>
+    <p>3パターンのデザイン提案。各プランのトップページおよびサブページをご確認ください。</p>
+  </div>
+  <div class="header-badge">PROPOSAL 2024</div>
+</header>
 
-<div class="top">
-  <p class="top-label">Envision — HP Renewal Proposal 2024</p>
-  <h1 class="top-h1">有限会社<em>エンビジョン</em><br>HPリニューアル提案</h1>
-  <div class="divider"></div>
-  <p class="top-sub">3つのデザイン提案をご用意しました。<br>各プランをクリックすると詳細をご覧いただけます。お好みのデザインをお選びください。</p>
+<div class="hero">
+  <div class="hero-label">ENVISION HP RENEWAL PROPOSAL</div>
+  <h2>3つのデザイン提案<br><span>あなたの「これだ」を選んでください</span></h2>
+  <p>現在のサイトから大幅にグレードアップした3案をご用意しました。各プランのリンクからTOP・事業内容・施工実績・会社案内・お問い合わせの全ページがご確認いただけます。</p>
 </div>
 
-<div class="plans">
-
+<div class="plans-section">
   <!-- PLAN A -->
-  <a class="plan-card pa" href="plan-a/index.html" target="_blank">
-    <div class="plan-img-wrap">
-      <img class="plan-img" src="https://envision.okayama.jp/wp-content/themes/eTheme/img/index/service_upper1.jpg" alt="Plan A">
-      <div class="plan-img-overlay"></div>
-      <div class="plan-badge">PLAN A</div>
-      <div class="plan-tag-img">
-        <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/kaitai01.jpg" alt="">
-        <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/doboku01.jpg" alt="">
-        <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/denki01.jpg" alt="">
+  <div class="plan-card plan-a">
+    <div class="plan-header">
+      <div class="plan-label">PLAN A</div>
+      <div class="plan-title">インダストリアル×モダン</div>
+      <div class="plan-desc">黒×オレンジの力強いコントラスト。建設業の「力・技・誇り」を前面に押し出したデザイン。</div>
+    </div>
+    <div class="plan-colors">
+      <div class="swatch" style="background:#0d0d0d;flex:3;border:1px solid rgba(255,255,255,.1);"></div>
+      <div class="swatch" style="background:#e85c00;flex:1;"></div>
+      <div class="swatch" style="background:#1a1a1a;flex:2;border:1px solid rgba(255,255,255,.1);"></div>
+    </div>
+    <div class="plan-preview">
+      <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works07.jpg" alt="Plan A">
+      <div class="preview-overlay"></div>
+    </div>
+    <div class="plan-features">
+      <div class="feature-row"><span class="feat-icon">🏗️</span><span class="feat-text">ダークベース × オレンジアクセント</span></div>
+      <div class="feature-row"><span class="feat-icon">🔠</span><span class="feat-text">Oswaldフォントで力強いインパクト</span></div>
+      <div class="feature-row"><span class="feat-icon">📐</span><span class="feat-text">3分割ヒーロー＋ニュースバー構成</span></div>
+      <div class="feature-row"><span class="feat-icon">⚡</span><span class="feat-text">男性的・硬派な印象</span></div>
+    </div>
+    <div class="plan-pages">
+      <div class="pages-label">全ページ確認</div>
+      <div class="page-links">
+        <a href="plan-a/index.html" class="page-link">TOP</a>
+        <a href="plan-a/service.html" class="page-link">事業内容</a>
+        <a href="plan-a/works.html" class="page-link">施工実績</a>
+        <a href="plan-a/company.html" class="page-link">会社案内</a>
+        <a href="plan-a/contact.html" class="page-link">お問い合わせ</a>
       </div>
     </div>
-    <div class="plan-body">
-      <div class="plan-name">INDUSTRIAL</div>
-      <div class="plan-concept">インダストリアル × モダン</div>
-      <p class="plan-desc">黒を基調にオレンジのアクセントを使った力強いデザイン。施工写真を4分割ヒーローで大胆に見せ、プロとしての実力を前面に打ち出します。</p>
-      <div class="plan-tags">
-        <span class="plan-tag">黒×オレンジ</span>
-        <span class="plan-tag">力強い</span>
-        <span class="plan-tag">インパクト重視</span>
-        <span class="plan-tag">Oswald書体</span>
-      </div>
-      <span class="plan-cta">このデザインを見る →</span>
+    <div class="plan-cta">
+      <a href="plan-a/index.html" class="cta-link">PLAN A を見る →</a>
     </div>
-  </a>
+  </div>
 
   <!-- PLAN B -->
-  <a class="plan-card pb" href="plan-b/index.html" target="_blank">
-    <div class="plan-img-wrap">
-      <img class="plan-img" src="https://envision.okayama.jp/wp-content/themes/eTheme/img/index/service_upper2.jpg" alt="Plan B">
-      <div class="plan-img-overlay"></div>
-      <div class="plan-badge">PLAN B</div>
-      <div class="plan-tag-img">
-        <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/kaitai02.jpg" alt="">
-        <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/doboku02.jpg" alt="">
-        <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/denki02.jpg" alt="">
+  <div class="plan-card plan-b">
+    <div class="plan-header">
+      <div class="plan-label">PLAN B</div>
+      <div class="plan-title">クリーン×コーポレート</div>
+      <div class="plan-desc">ネイビー×ゴールドの品格あるデザイン。信頼性と高級感を演出し、法人顧客にも響く。</div>
+    </div>
+    <div class="plan-colors">
+      <div class="swatch" style="background:#0b1f3a;flex:3;"></div>
+      <div class="swatch" style="background:#b89a4e;flex:1;"></div>
+      <div class="swatch" style="background:#f8f8f8;flex:2;border:1px solid rgba(255,255,255,.1);"></div>
+    </div>
+    <div class="plan-preview">
+      <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works04.jpg" alt="Plan B">
+      <div class="preview-overlay"></div>
+    </div>
+    <div class="plan-features">
+      <div class="feature-row"><span class="feat-icon">🏛️</span><span class="feat-text">ネイビー × ゴールドの高品位カラー</span></div>
+      <div class="feature-row"><span class="feat-icon">🔠</span><span class="feat-text">明朝体×サンセリフのエレガント組合せ</span></div>
+      <div class="feature-row"><span class="feat-icon">📊</span><span class="feat-text">白ヘッダー＋スプリットヒーロー構成</span></div>
+      <div class="feature-row"><span class="feat-icon">💼</span><span class="feat-text">法人・官公庁向けに信頼感を訴求</span></div>
+    </div>
+    <div class="plan-pages">
+      <div class="pages-label">全ページ確認</div>
+      <div class="page-links">
+        <a href="plan-b/index.html" class="page-link">TOP</a>
+        <a href="plan-b/service.html" class="page-link">事業内容</a>
+        <a href="plan-b/works.html" class="page-link">施工実績</a>
+        <a href="plan-b/company.html" class="page-link">会社案内</a>
+        <a href="plan-b/contact.html" class="page-link">お問い合わせ</a>
       </div>
     </div>
-    <div class="plan-body">
-      <div class="plan-name">PROFESSIONAL</div>
-      <div class="plan-concept">クリーン × プロフェッショナル</div>
-      <p class="plan-desc">ネイビー×ゴールドの格調あるカラーリング。信頼感と品質の高さを演出し、幅広い層に安心感を与えるスタンダードなプロデザインです。</p>
-      <div class="plan-tags">
-        <span class="plan-tag">ネイビー×ゴールド</span>
-        <span class="plan-tag">信頼感</span>
-        <span class="plan-tag">品格</span>
-        <span class="plan-tag">明朝体使用</span>
-      </div>
-      <span class="plan-cta">このデザインを見る →</span>
+    <div class="plan-cta">
+      <a href="plan-b/index.html" class="cta-link">PLAN B を見る →</a>
     </div>
-  </a>
+  </div>
 
   <!-- PLAN C -->
-  <a class="plan-card pc" href="plan-c/index.html" target="_blank">
-    <div class="plan-img-wrap">
-      <img class="plan-img" src="https://envision.okayama.jp/wp-content/themes/eTheme/img/index/service_upper3.jpg" alt="Plan C">
-      <div class="plan-img-overlay"></div>
-      <div class="plan-badge">PLAN C</div>
-      <div class="plan-tag-img">
-        <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/kaitai03.jpg" alt="">
-        <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/doboku03.jpg" alt="">
-        <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works/denki03.jpg" alt="">
+  <div class="plan-card plan-c">
+    <div class="plan-header">
+      <div class="plan-label">PLAN C</div>
+      <div class="plan-title">地域密着×温かみ</div>
+      <div class="plan-desc">フォレストグリーン×テラコッタの自然な温もり。「地域に根ざした、人に寄り添う会社」を表現。</div>
+    </div>
+    <div class="plan-colors">
+      <div class="swatch" style="background:#1a4a2e;flex:3;"></div>
+      <div class="swatch" style="background:#c0623a;flex:1;"></div>
+      <div class="swatch" style="background:#faf5ef;flex:2;border:1px solid rgba(255,255,255,.1);"></div>
+    </div>
+    <div class="plan-preview">
+      <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/works01.jpg" alt="Plan C">
+      <div class="preview-overlay"></div>
+    </div>
+    <div class="plan-features">
+      <div class="feature-row"><span class="feat-icon">🌿</span><span class="feat-text">フォレストグリーン × テラコッタ</span></div>
+      <div class="feature-row"><span class="feat-icon">🔠</span><span class="feat-text">明朝体で温かさと安心感を演出</span></div>
+      <div class="feature-row"><span class="feat-icon">🏘️</span><span class="feat-text">クリームベースで読みやすく親しみやすい</span></div>
+      <div class="feature-row"><span class="feat-icon">🤝</span><span class="feat-text">地域密着・個人顧客へのアピール</span></div>
+    </div>
+    <div class="plan-pages">
+      <div class="pages-label">全ページ確認</div>
+      <div class="page-links">
+        <a href="plan-c/index.html" class="page-link">TOP</a>
+        <a href="plan-c/service.html" class="page-link">事業内容</a>
+        <a href="plan-c/works.html" class="page-link">施工実績</a>
+        <a href="plan-c/company.html" class="page-link">会社案内</a>
+        <a href="plan-c/contact.html" class="page-link">お問い合わせ</a>
       </div>
     </div>
-    <div class="plan-body">
-      <div class="plan-name">WARM &amp; LOCAL</div>
-      <div class="plan-concept">温かみ × 地域密着</div>
-      <p class="plan-desc">ブラウン×テラコッタのアースカラーで地域に根ざした温もりを表現。「誠実さ」と「親しみやすさ」を前面に出した岡山らしいデザインです。</p>
-      <div class="plan-tags">
-        <span class="plan-tag">ブラウン×テラコッタ</span>
-        <span class="plan-tag">地域密着</span>
-        <span class="plan-tag">温かみ</span>
-        <span class="plan-tag">親しみやすい</span>
-      </div>
-      <span class="plan-cta">このデザインを見る →</span>
+    <div class="plan-cta">
+      <a href="plan-c/index.html" class="cta-link">PLAN C を見る →</a>
     </div>
-  </a>
-
+  </div>
 </div>
 
-<div class="note">
-  <strong>ご確認事項：</strong>各プランをクリックすると新しいタブで詳細ページが開きます。施工写真は現行サイト（envision.okayama.jp）から直接参照しています。選定いただいたデザインをベースに、電話番号・住所・事業内容などの実際の情報に差し替えて最終版を制作いたします。
+<!-- COMPARISON TABLE -->
+<div class="comparison">
+  <h2>3プラン 比較一覧</h2>
+  <table class="comparison-table">
+    <tr>
+      <th>項目</th>
+      <th class="ta">PLAN A<br>インダストリアル</th>
+      <th class="tb">PLAN B<br>コーポレート</th>
+      <th class="tc">PLAN C<br>地域密着</th>
+    </tr>
+    <tr>
+      <td>ベースカラー</td>
+      <td class="ta">ブラック #0d0d0d</td>
+      <td class="tb">ネイビー #0b1f3a</td>
+      <td class="tc">グリーン #1a4a2e</td>
+    </tr>
+    <tr>
+      <td>アクセント</td>
+      <td class="ta">オレンジ #e85c00</td>
+      <td class="tb">ゴールド #b89a4e</td>
+      <td class="tc">テラコッタ #c0623a</td>
+    </tr>
+    <tr>
+      <td>フォント</td>
+      <td class="ta">Oswald（英文力強系）</td>
+      <td class="tb">Noto Serif JP（明朝）</td>
+      <td class="tc">Noto Serif JP（明朝）</td>
+    </tr>
+    <tr>
+      <td>ヒーロー構成</td>
+      <td class="ta">3分割 + ニュースバー</td>
+      <td class="tb">スプリット2分割</td>
+      <td class="tc">全面ビジュアル + 緑帯</td>
+    </tr>
+    <tr>
+      <td>ターゲット印象</td>
+      <td class="ta">力強さ・プロフェッショナル</td>
+      <td class="tb">信頼・品格・法人向け</td>
+      <td class="tc">温かさ・地域密着・親しみ</td>
+    </tr>
+    <tr>
+      <td>ページ数</td>
+      <td>5ページ完備</td>
+      <td>5ページ完備</td>
+      <td>5ページ完備</td>
+    </tr>
+  </table>
 </div>
 
 <footer>
-  © 2024 有限会社エンビジョン HPリニューアル提案 — Prepared by Envision Renewal Team
+  &copy; 2024 有限会社エンビジョン HPリニューアル提案 — Powered by GitHub Pages
 </footer>
-
 </body>
 </html>

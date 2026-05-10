@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>会社案内 | 有限会社エンビジョン</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--green:#1a4a2e;--green-light:#2d6b44;--terra:#c0623a;--cream:#faf5ef;--brown:#3d2b1f;}
+body{font-family:'Noto Sans JP',sans-serif;background:#fff;color:#333;}
+a{text-decoration:none;color:inherit;}
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,74,46,0.97);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;}
+.logo-wrap{display:flex;align-items:center;gap:12px;}
+.logo-mark{width:36px;height:36px;background:var(--terra);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.logo-mark svg{fill:#fff;width:18px;height:18px;}
+.logo-text{font-family:'Noto Serif JP',serif;color:#fff;font-size:14px;line-height:1.4;}
+nav{display:flex;gap:32px;}
+nav a{color:rgba(255,255,255,0.85);font-size:13px;letter-spacing:.06em;transition:color .2s;}
+nav a:hover,nav a.active{color:var(--terra);}
+.nav-cta{background:var(--terra);color:#fff!important;padding:8px 18px;border-radius:2px;font-size:12px!important;}
+
+.page-hero{margin-top:68px;position:relative;height:340px;overflow:hidden;}
+.page-hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.35);}
+.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 80px;background:linear-gradient(to right,rgba(26,74,46,.8) 40%,transparent);}
+.breadcrumb{color:rgba(255,255,255,.7);font-size:12px;margin-bottom:16px;}
+.breadcrumb span{color:var(--terra);}
+.page-hero h1{font-family:'Noto Serif JP',serif;color:#fff;font-size:40px;font-weight:700;line-height:1.3;}
+.page-hero h1 em{display:block;font-style:normal;font-size:14px;letter-spacing:.2em;color:rgba(255,255,255,.7);margin-bottom:8px;}
+
+/* MESSAGE */
+.message-section{background:var(--green);padding:80px 0;}
+.message-inner{max-width:1100px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1.4fr;gap:72px;align-items:center;}
+.message-img{position:relative;}
+.message-img img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:4px;}
+.message-img::after{content:'';position:absolute;bottom:-16px;right:-16px;width:80%;height:80%;border:2px solid var(--terra);border-radius:4px;z-index:-1;}
+.message-text h2{font-family:'Noto Serif JP',serif;color:#fff;font-size:30px;line-height:1.5;margin-bottom:24px;}
+.message-text h2 em{display:block;font-style:normal;font-size:13px;letter-spacing:.15em;color:var(--terra);margin-bottom:12px;}
+.message-text p{color:rgba(255,255,255,.85);font-size:14px;line-height:2;margin-bottom:16px;}
+.message-sign{color:rgba(255,255,255,.6);font-size:13px;margin-top:24px;font-family:'Noto Serif JP',serif;}
+.message-sign strong{color:#fff;font-size:20px;display:block;margin-top:4px;}
+
+/* PHILOSOPHY */
+.philosophy-section{background:var(--cream);padding:72px 0;}
+.section-head{text-align:center;margin-bottom:48px;}
+.section-head em{display:block;font-style:normal;font-size:12px;letter-spacing:.2em;color:var(--terra);margin-bottom:8px;}
+.section-head h2{font-family:'Noto Serif JP',serif;color:var(--green);font-size:28px;}
+.philosophy-grid{max-width:1100px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.phi-card{background:#fff;border-top:4px solid var(--terra);padding:32px 24px;text-align:center;border-radius:0 0 4px 4px;}
+.phi-num{font-family:'Noto Serif JP',serif;font-size:40px;color:rgba(26,74,46,.12);font-weight:700;line-height:1;margin-bottom:8px;}
+.phi-title{font-family:'Noto Serif JP',serif;color:var(--green);font-size:18px;margin-bottom:12px;}
+.phi-body{color:#777;font-size:13px;line-height:1.8;}
+
+/* OVERVIEW TABLE */
+.overview-section{padding:72px 0;background:#fff;}
+.overview-inner{max-width:900px;margin:0 auto;padding:0 40px;}
+table{width:100%;border-collapse:collapse;}
+tr{border-bottom:1px solid #eee;}
+th{background:var(--cream);color:var(--green);font-weight:700;font-size:13px;padding:16px 24px;text-align:left;width:200px;vertical-align:top;}
+td{padding:16px 24px;font-size:14px;color:#444;line-height:1.7;}
+
+/* LICENSES */
+.license-section{background:var(--cream);padding:64px 0;}
+.license-inner{max-width:1100px;margin:0 auto;padding:0 40px;}
+.license-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:40px;}
+.license-card{background:#fff;border-left:4px solid var(--green);padding:20px 24px;}
+.license-card h3{font-family:'Noto Serif JP',serif;color:var(--green);font-size:14px;margin-bottom:6px;}
+.license-card p{color:#666;font-size:12px;line-height:1.6;}
+
+.cta-section{padding:80px 0;background:var(--green);text-align:center;}
+.cta-section h2{font-family:'Noto Serif JP',serif;color:#fff;font-size:26px;margin-bottom:16px;}
+.cta-section p{color:rgba(255,255,255,.8);font-size:14px;line-height:1.8;margin-bottom:32px;}
+.cta-btn{display:inline-block;background:var(--terra);color:#fff;padding:16px 48px;font-size:15px;border-radius:2px;letter-spacing:.1em;transition:opacity .2s;}
+.cta-btn:hover{opacity:.85;}
+
+footer{background:var(--brown);padding:48px 0 24px;}
+.footer-inner{max-width:1100px;margin:0 auto;padding:0 40px;}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:40px;}
+.footer-logo{font-family:'Noto Serif JP',serif;color:#fff;font-size:16px;line-height:1.5;}
+.footer-nav{display:flex;gap:32px;}
+.footer-nav a{color:rgba(255,255,255,.7);font-size:12px;transition:color .2s;}
+.footer-nav a:hover{color:var(--terra);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:20px;text-align:center;color:rgba(255,255,255,.4);font-size:11px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo-wrap">
+    <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9H18v9H6v-9z"/></svg></div>
+    <div class="logo-text">有限会社<br>エンビジョン</div>
+  </div>
+  <nav>
+    <a href="index.html">トップ</a>
+    <a href="service.html">事業内容</a>
+    <a href="works.html">施工実績</a>
+    <a href="company.html" class="active">会社案内</a>
+    <a href="contact.html" class="nav-cta">お問い合わせ</a>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/bg_message.jpg" alt="会社案内">
+  <div class="hero-content">
+    <div class="breadcrumb">トップ &gt; <span>会社案内</span></div>
+    <h1><em>COMPANY</em>会社案内</h1>
+  </div>
+</div>
+
+<div class="message-section">
+  <div class="message-inner">
+    <div class="message-img">
+      <img src="https://envision.okayama.jp/wp-content/themes/eTheme/img/img_message.jpg" alt="代表メッセージ">
+    </div>
+    <div class="message-text">
+      <h2><em>MESSAGE</em>代表メッセージ</h2>
+      <p>弊社は岡山市中区に拠点を置き、地域の建設インフラを支えるべく、解体・土木・とび・電気の4事業を展開してまいりました。</p>
+      <p>「安全・信頼・創造・進歩」の4つの理念を胸に、すべての現場で誠実な仕事を心がけています。地域の皆様に長く愛される会社であり続けるため、私たちは今日も現場に立ちます。</p>
+      <p>どんな小さなご相談でも、まずはお気軽にお声がけください。お客様の笑顔を見ることが、私たちの一番の喜びです。</p>
+      <div class="message-sign">代表取締役<strong>恩田 博二</strong></div>
+    </div>
+  </div>
+</div>
+
+<div class="philosophy-section">
+  <div class="section-head">
+    <em>PHILOSOPHY</em>
+    <h2>経営理念</h2>
+  </div>
+  <div class="philosophy-grid">
+    <div class="phi-card">
+      <div class="phi-num">01</div>
+      <div class="phi-title">安全</div>
+      <p class="phi-body">すべての作業において安全を最優先に。従業員と近隣の安心・安全を守ります。</p>
+    </div>
+    <div class="phi-card">
+      <div class="phi-num">02</div>
+      <div class="phi-title">信頼</div>
+      <p class="phi-body">誠実な対応と確かな技術で、お客様・社会からの信頼に応え続けます。</p>
+    </div>
+    <div class="phi-card">
+      <div class="phi-num">03</div>
+      <div class="phi-title">創造</div>
+      <p class="phi-body">新しい技術や工法を積極的に取り入れ、より良い仕事を追求し続けます。</p>
+    </div>
+    <div class="phi-card">
+      <div class="phi-num">04</div>
+      <div class="phi-title">進歩</div>
+      <p class="phi-body">社員一人ひとりが成長し続け、会社全体でより高い価値を提供します。</p>
+    </div>
+  </div>
+</div>
+
+<div class="overview-section">
+  <div class="overview-inner">
+    <div class="section-head">
+      <em>OVERVIEW</em>
+      <h2>会社概要</h2>
+    </div>
+    <br>
+    <table>
+      <tr><th>商号</th><td>有限会社エンビジョン</td></tr>
+      <tr><th>代表者</th><td>恩田 博二</td></tr>
+      <tr><th>設立</th><td>平成18年1月</td></tr>
+      <tr><th>資本金</th><td>300万円</td></tr>
+      <tr><th>従業員数</th><td>10名</td></tr>
+      <tr><th>所在地</th><td>〒703-8284 岡山県岡山市中区平井6丁目5番9号</td></tr>
+      <tr><th>TEL</th><td>086-271-9889</td></tr>
+      <tr><th>FAX</th><td>086-271-9887</td></tr>
+      <tr><th>主な事業</th><td>解体工事 / 土木工事 / とび工事 / 電気工事</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="license-section">
+  <div class="license-inner">
+    <div class="section-head">
+      <em>LICENSE</em>
+      <h2>許可・資格</h2>
+    </div>
+    <div class="license-grid">
+      <div class="license-card">
+        <h3>岡山県知事許可（般-27）第15551号</h3>
+        <p>とび・土工・コンクリート工事業 / 電気工事業 / 解体工事業</p>
+      </div>
+      <div class="license-card">
+        <h3>岡山県知事許可（特-27）第15551号</h3>
+        <p>とび・土工・コンクリート工事業（特定）</p>
+      </div>
+      <div class="license-card">
+        <h3>建設業許可（解体）</h3>
+        <p>解体工事業登録番号 岡山県知事登録 第02-01号</p>
+      </div>
+      <div class="license-card">
+        <h3>各種資格保有</h3>
+        <p>特別教育修了者・安全衛生管理者・技能士など多数在籍</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <h2>まずはお気軽にご連絡ください</h2>
+  <p>お見積りのご依頼・工事に関するご質問など、何でもお気軽にどうぞ。</p>
+  <a href="contact.html" class="cta-btn">お問い合わせはこちら</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo">有限会社エンビジョン<br><small style="color:rgba(255,255,255,.5);font-size:11px;">〒703-8284 岡山市中区平井6丁目5-9</small></div>
+      <div class="footer-nav">
+        <a href="index.html">トップ</a>
+        <a href="service.html">事業内容</a>
+        <a href="works.html">施工実績</a>
+        <a href="company.html">会社案内</a>
+        <a href="contact.html">お問い合わせ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2024 有限会社エンビジョン All Rights Reserved.</div>
+  </div>
+</footer>
+</body>
+</html>
